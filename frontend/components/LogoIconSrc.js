@@ -2,7 +2,7 @@ import styled from "styled-components";
 import SVG from "react-inlinesvg";
 
 const LogoIconWrapper = styled.div`
-  display: ${(props) => (props.show ? "block" : "none")};
+  display: ${(props) => (props.isActive || props.show ? "block" : "none")};
 `;
 
 const LogoIconSrc = (props) => (
@@ -23,8 +23,8 @@ const LogoIconSrc = (props) => (
   </LogoIconWrapper>
 );
 
-const LogoIcon = (props) => (
-  <LogoIconWrapper show={props.show}>
+const LogoIcon = ({ active, show }) => (
+  <LogoIconWrapper active={active} show={show}>
     <LogoIconSrc />
   </LogoIconWrapper>
 );

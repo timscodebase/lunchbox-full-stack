@@ -11,12 +11,16 @@ const A = styled.a`
   height: 100%;
   align-items: center;
   padding: 1rem;
+  background: ${(props) => (props.isActive ? props.theme.pink : "transparent")};
+  color: ${(props) => (props.isActive ? props.theme.white : props.theme.pink)};
+  font-weight: ${(props) => (props.isActive ? "bolder" : "normal")};
 
   svg {
     width: 22px;
     height: 22px;
-    fill: ${(props) => props.theme.pink};
-    stroke: ${(props) => props.theme.pink};
+    fill: ${(props) => (props.isActive ? props.theme.white : props.theme.pink)};
+    stroke: ${(props) =>
+      props.isActive ? props.theme.white : props.theme.pink};
     margin: 0 -11px;
     position: absolute;
     bottom: 10px;
@@ -24,19 +28,23 @@ const A = styled.a`
   }
 `;
 
-const ALink = (props, href) => {
+const ALink = ({ children, href }) => {
   const router = useRouter();
-  const inActive = router.pathname === href;
   const [isHovered, setIsHovered] = useState(false);
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    const isActive = router.pathname === href;
+    setActive(isActive);
+  }, []);
   return (
-    <Link href={props.href}>
+    <Link href={href}>
       <A
-        isActive={isActive}
+        isActive={active}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {props.children}
-        <LogoIconSrc show={isHovered} />
+        {children}
+        <LogoIconSrc active={active} show={isHovered} />
       </A>
     </Link>
   );
