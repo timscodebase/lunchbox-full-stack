@@ -8,7 +8,7 @@ const H1 = styled.h1`
   line-height: 0.6;
   padding-bottom: 1rem;
 
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
     font-size: 6rem;
   }
 `;

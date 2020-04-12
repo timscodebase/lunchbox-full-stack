@@ -5,6 +5,7 @@ const Theme = {
   pink: "#ae0e60",
   darkPink: "#",
   maxWidth: "1000px",
+  tabletMQ: "800px",
   bs: `box-shadow: 0 0 0 4px #dfa456, 0 0 0 8px #793817, 0 0 0 12px #ae0e60,
       0 0 0 16px #dfa456`,
   pattern:

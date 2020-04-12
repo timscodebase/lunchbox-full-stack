@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
   display: flex;
   max-width: 300px;
 
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
     margin: 0 auto;
   }
 `;

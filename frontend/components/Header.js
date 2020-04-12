@@ -10,7 +10,7 @@ const A = styled.a`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
     flex-direction: column;
   }
 `;
@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
   border-bottom: 2px solid ${(props) => props.theme.pink};
   background: rgba(255, 255, 255, 0.75);
 
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
     flex-direction: column;
   }
 `;
