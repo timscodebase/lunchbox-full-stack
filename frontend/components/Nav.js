@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from "react";
 import ALink from "./ALink";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -11,13 +13,32 @@ const StyledNav = styled.nav`
 `;
 
 const Nav = () => {
+  const router = useRouter();
+  const [homeActive, setHomeActive] = useState(false);
+  const [sellActive, setSellActive] = useState(false);
+
+  useEffect(() => {
+    if (router.pathname === "/") setHomeActive(true);
+    if (router.pathname === "/sell") setSellActive(true);
+  }, [ALink]);
+
   return (
     <StyledNav>
-      <ALink href="/">Home</ALink>
-      <ALink href="sell">Sell</ALink>
-      <ALink href="sell">Sell</ALink>
-      <ALink href="sell">Sell</ALink>
-      <ALink href="sell">Sell</ALink>
+      <ALink href="/" active={homeActive}>
+        Home
+      </ALink>
+      <ALink href="sell" active={sellActive}>
+        Sell
+      </ALink>
+      <ALink href="sell" active={sellActive}>
+        Sell
+      </ALink>
+      <ALink href="sell" active={sellActive}>
+        Sell
+      </ALink>
+      <ALink href="sell" active={sellActive}>
+        Sell
+      </ALink>
     </StyledNav>
   );
 };
