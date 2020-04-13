@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 const StyledNav = styled.nav`
   display: flex;
-  max-width: 300px;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     margin: 0 auto;
@@ -14,30 +13,32 @@ const StyledNav = styled.nav`
 
 const Nav = () => {
   const router = useRouter();
-  const [homeActive, setHomeActive] = useState(false);
-  const [sellActive, setSellActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
+  const [signupActive, setSignupActive] = useState(false);
+  const [ordersActive, setOrdersActive] = useState(false);
+  const [accountActive, setAccountActive] = useState(false);
 
   useEffect(() => {
-    if (router.pathname === "/") setHomeActive(true);
-    if (router.pathname === "/sell") setSellActive(true);
+    if (router.pathname === "/") setMenuActive(true);
+    if (router.pathname === "/menu") setMenuActive(true);
+    if (router.pathname === "/signup") setSignupActive(true);
+    if (router.pathname === "/orders") setOrdersActive(true);
+    if (router.pathname === "/account") setAccountActive(true);
   }, [ALink]);
 
   return (
     <StyledNav>
-      <ALink href="/" active={homeActive}>
-        Home
+      <ALink href="/menu" active={menuActive}>
+        Menu
       </ALink>
-      <ALink href="sell" active={sellActive}>
-        Sell
+      <ALink href="signup" active={signupActive}>
+        Signup
       </ALink>
-      <ALink href="sell" active={sellActive}>
-        Sell
+      <ALink href="orders" active={ordersActive}>
+        Orders
       </ALink>
-      <ALink href="sell" active={sellActive}>
-        Sell
-      </ALink>
-      <ALink href="sell" active={sellActive}>
-        Sell
+      <ALink href="account" active={accountActive}>
+        Account
       </ALink>
     </StyledNav>
   );

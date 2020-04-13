@@ -10,15 +10,18 @@ const A = styled.a`
   height: 100%;
   align-items: center;
   padding: 1rem;
-  background: ${(props) => (props.active ? props.theme.pink : "transparent")};
+  background: ${(props) =>
+    props.active ? props.theme.brightPink : "transparent"};
   color: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
   font-weight: ${(props) => (props.active ? "bolder" : "normal")};
 
   svg {
     width: 22px;
     height: 22px;
-    fill: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
-    stroke: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
+    fill: ${(props) =>
+      props.active ? props.theme.white : props.theme.brightPink};
+    stroke: ${(props) =>
+      props.active ? props.theme.white : props.theme.brightPink};
     margin: 0 -11px;
     position: absolute;
     bottom: 10px;
@@ -38,7 +41,7 @@ const ALink = ({ children, active, href }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         {children}
-        <LogoIconSrc active={active} show={isHovered} />
+        {/* <LogoIconSrc active={active} show={isHovered} /> */}
       </A>
     </Link>
   );
