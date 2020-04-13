@@ -46,7 +46,7 @@ Router.events.on("routeChangeComplete", (e) => {
   NProgress.done();
 });
 Router.events.on("routeChangeError", (e) => {
-  console.log(e);
+  NProgress.done();
 });
 
 const Header = () => (

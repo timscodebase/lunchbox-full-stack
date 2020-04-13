@@ -15,7 +15,7 @@ const LogoIconSrc = (props) => (
       onError={(error) => console.log(error.message)}
       onLoad={(src, hasCache) => console.log(src, hasCache)}
       preProcessor={(code) => code.replace(/fill=".*?"/g, "#eee")}
-      src="/static/logo-icon.svg"
+      src="/logo-icon.svg"
       title="The Classic Lunchbox"
       uniqueHash="1L0v3H3l3N!"
       uniquifyIDs={true}

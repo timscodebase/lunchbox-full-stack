@@ -28,8 +28,7 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 0 4px #dfa456, 0 0 0 8px #793817, 0 0 0 12px #ff0040,
-    0 0 0 16px #ae0e60, 0 0 0 16px #dfa456;
+  box-shadow: 0 0 0 4px #ff0040
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);

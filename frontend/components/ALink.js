@@ -41,7 +41,7 @@ const ALink = ({ children, active, href }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         {children}
-        {/* <LogoIconSrc active={active} show={isHovered} /> */}
+        <LogoIconSrc active={active} show={isHovered} />
       </A>
     </Link>
   );

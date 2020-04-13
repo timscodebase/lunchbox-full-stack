@@ -199,36 +199,36 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: "haymakerregular";
-    src: url("/static/fonts/haymaker-webfont.eot");
-    src: url("/static/fonts/haymaker-webfont.eot?#iefix")
+    src: url("/fonts/haymaker-webfont.eot");
+    src: url("/fonts/haymaker-webfont.eot?#iefix")
         format("embedded-opentype"),
-      url("/static/fonts/haymaker-webfont.woff") format("woff"),
-      url("/static/fonts/haymaker-webfont.ttf") format("truetype"),
-      url("/static/fonts/haymaker-webfont.svg#haymakerregular") format("svg");
+      url("/fonts/haymaker-webfont.woff") format("woff"),
+      url("/fonts/haymaker-webfont.ttf") format("truetype"),
+      url("/fonts/haymaker-webfont.svg#haymakerregular") format("svg");
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: "blanchcaps_inline";
-    src: url("/static/fonts/blanch_caps_inline-webfont.eot");
-    src: url("/static/fonts/blanch_caps_inline-webfont.eot?#iefix")
+    src: url("/fonts/blanch_caps_inline-webfont.eot");
+    src: url("/fonts/blanch_caps_inline-webfont.eot?#iefix")
         format("embedded-opentype"),
-      url("/static/fonts/blanch_caps_inline-webfont.woff") format("woff"),
-      url("/static/fonts/blanch_caps_inline-webfont.ttf") format("truetype"),
-      url("/static/fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline")
+      url("/fonts/blanch_caps_inline-webfont.woff") format("woff"),
+      url("/fonts/blanch_caps_inline-webfont.ttf") format("truetype"),
+      url("/fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline")
         format("svg");
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: "Raleway";
-    src: url("/static/fonts/Raleway-Regular.ttf") format("truetype");
+    src: url("/fonts/Raleway-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: "Quicksand";
-    src: url("/static/fonts/Quicksand-Regular.ttf") format("truetype");
+    src: url("/fonts/Quicksand-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
