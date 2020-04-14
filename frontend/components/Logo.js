@@ -9,8 +9,9 @@ const StyledLogo = styled.img`
 const LogoSrc =
   "https://res.cloudinary.com/tihos/image/upload/c_scale,e_auto_brightness,w_180/v1586239047/The%20Classic%20Lunchbox/The_Classic_Lunchbox_Logo_transperent_1024.png";
 
+const LocalLogoSrc = "/logo.png";
 const Logo = () => (
-  <StyledLogo small src={LogoSrc} alt="The Classic LunchBox" />
+  <StyledLogo small width="180" src={LocalLogoSrc} alt="The Classic LunchBox" />
 );
 
 export default Logo;
