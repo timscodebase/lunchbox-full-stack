@@ -1,0 +1,15 @@
+# import * from './generated/prisma.graphql'
+
+type Mutation {
+  createSandwich(
+    title: String
+    description: String
+    image: String
+    largeImage: String
+    price: Int
+  ): Sandwich!
+}
+
+type Query {
+  sandwiches: [Sandwich]!
+}

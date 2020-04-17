@@ -1,3 +1,13 @@
-const mutations = {};
+const Mutations = {
+  async createSandwich(parent, args, ctx, info) {
+    // TODO: Check if they are logged in
 
-module.exports = mutations;
+    const sandwich = await ctx.db.mutation.createSandwich(
+      { data: { ...args } },
+      info
+    );
+    return sandwich;
+  },
+};
+
+module.exports = Mutations;
