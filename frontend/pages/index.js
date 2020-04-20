@@ -1,8 +1,9 @@
-import Link from "next/link";
+import Sandwiches from "../components/Sandwiches";
 
 const Home = (props) => (
   <div>
-    <p>Home</p>
+    <h2>Menu</h2>
+    <Sandwiches />
   </div>
 );
 

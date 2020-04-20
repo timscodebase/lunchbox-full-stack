@@ -3,6 +3,13 @@ import SVG from "react-inlinesvg";
 
 const LogoIconWrapper = styled.div`
   display: ${(props) => (props.isActive || props.show ? "block" : "none")};
+
+  svg {
+    g {
+      fill: ${(props) => props.theme.pink};
+      stroke: ${(props) => props.theme.pink};
+    }
+  }
 `;
 
 const LogoIconSrc = (props) => (
@@ -14,7 +21,6 @@ const LogoIconSrc = (props) => (
       loader={() => <span>Loading...</span>}
       onError={(error) => console.log(error.message)}
       onLoad={(src, hasCache) => console.log(src, hasCache)}
-      preProcessor={(code) => code.replace(/fill=".*?"/g, "#eee")}
       src="/logo-icon.svg"
       title="The Classic Lunchbox"
       uniqueHash="1L0v3H3l3N!"

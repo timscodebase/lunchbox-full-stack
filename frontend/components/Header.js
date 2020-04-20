@@ -30,7 +30,7 @@ const StyledHeader = styled.header`
 
 const SubBar = styled.input`
   width: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: ${(props) => props.theme.whiteTrans75};
   border-top: none;
   border-left: none;
   border-right: none;

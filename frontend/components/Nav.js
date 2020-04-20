@@ -24,7 +24,7 @@ const Nav = () => {
     if (router.pathname === "/signup") setSignupActive(true);
     if (router.pathname === "/orders") setOrdersActive(true);
     if (router.pathname === "/account") setAccountActive(true);
-  }, [ALink]);
+  }, [menuActive, signupActive, ordersActive, accountActive]);
 
   return (
     <StyledNav>
