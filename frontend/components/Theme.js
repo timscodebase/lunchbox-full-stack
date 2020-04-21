@@ -8,6 +8,8 @@ const Theme = {
   purple: "#6e0078",
   maxWidth: "1000px",
   tabletMQ: "800px",
+  // Padding
+  padding: "1rem",
   // Box Shadows
   bs: `0 0 0 4px #dfa456, 0 0 0 8px #793817, 0 0 0 12px #ff0040, 0 0 0 16px #ae0e60, 0 0 0 16px #dfa456`,
   dropShadow: "0px 3px 5px 0px rgba(0,0,0,0.75)",

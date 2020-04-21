@@ -15,6 +15,7 @@ const Nav = () => {
   const router = useRouter();
   const [menuActive, setMenuActive] = useState(false);
   const [signupActive, setSignupActive] = useState(false);
+  const [sellActive, setSellActive] = useState(false);
   const [ordersActive, setOrdersActive] = useState(false);
   const [accountActive, setAccountActive] = useState(false);
 
@@ -22,6 +23,7 @@ const Nav = () => {
     if (router.pathname === "/") setMenuActive(true);
     if (router.pathname === "/menu") setMenuActive(true);
     if (router.pathname === "/signup") setSignupActive(true);
+    if (router.pathname === "/sell") setSellActive(true);
     if (router.pathname === "/orders") setOrdersActive(true);
     if (router.pathname === "/account") setAccountActive(true);
   }, [menuActive, signupActive, ordersActive, accountActive]);
@@ -30,6 +32,9 @@ const Nav = () => {
     <StyledNav>
       <ALink href="/menu" active={menuActive}>
         Menu
+      </ALink>
+      <ALink href="/sell" active={sellActive}>
+        Sell
       </ALink>
       <ALink href="signup" active={signupActive}>
         Signup

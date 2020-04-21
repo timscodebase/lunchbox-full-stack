@@ -6,7 +6,7 @@ const LogoIconWrapper = styled.div`
 
   svg {
     g {
-      fill: ${(props) => props.theme.pink};
+      fill: ${(props) => props.theme.brown};
       stroke: ${(props) => props.theme.pink};
     }
   }
@@ -15,12 +15,8 @@ const LogoIconWrapper = styled.div`
 const LogoIconSrc = (props) => (
   <LogoIconWrapper show={props.show}>
     <SVG
-      baseURL="/home"
       cacheRequests={true}
       description="The Classic Lunchbox"
-      loader={() => <span>Loading...</span>}
-      onError={(error) => console.log(error.message)}
-      onLoad={(src, hasCache) => console.log(src, hasCache)}
       src="/logo-icon.svg"
       title="The Classic Lunchbox"
       uniqueHash="1L0v3H3l3N!"
@@ -31,7 +27,7 @@ const LogoIconSrc = (props) => (
 
 const LogoIcon = ({ active, show }) => (
   <LogoIconWrapper active={active} show={show}>
-    <LogoIconSrc />
+    <img src="/logo-icon.svg" alt="Hover jelly splash" />
   </LogoIconWrapper>
 );
 
