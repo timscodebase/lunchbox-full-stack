@@ -4,7 +4,6 @@ import CreateSandwich from "../components/CreateSandwich";
 
 const Sell = () => (
   <div>
-    <h2>Sell</h2>
     <CreateSandwich />
   </div>
 );
