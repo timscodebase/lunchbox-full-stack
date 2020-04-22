@@ -4,6 +4,9 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import Header from "../components/Header";
 import Meta from "../components/Meta";
 import Theme from "./Theme";
+import Footer from "./Footer";
+
+import Inner from "../components/styles/Inner";
 
 const pattern =
   "https://res.cloudinary.com/tihos/image/upload/q_auto/v1585937290/pattern3_btd9kp.png";
@@ -13,17 +16,21 @@ const StyledPage = styled.div`
   color: ${(props) => props.theme.pink};
 `;
 
-const Inner = styled.div`
-  max-width: ${(props) => props.theme.bs};
-  margin: 0 auto;
-  padding: 2rem;
-`;
-
 const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+  *::before, *::after { box-sizing: inherit };
   a {
     text-decoration: none;
   }
-
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
   article,
   aside,
   details,
@@ -250,7 +257,9 @@ const GlobalStyle = createGlobalStyle`
     line-height: 0.6;
     font-weight: 100;
   }
-
+  
+  a,
+  p,
   h3,
   h4,
   h5,
@@ -280,6 +289,7 @@ class Page extends Component {
           <Meta />
           <Header />
           <Inner>{this.props.children}</Inner>
+          <Footer />
         </StyledPage>
       </ThemeProvider>
     );

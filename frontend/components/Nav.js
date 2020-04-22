@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ALink from "./ALink";
 import styled from "styled-components";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -19,6 +19,39 @@ const Nav = () => {
   const [ordersActive, setOrdersActive] = useState(false);
   const [accountActive, setAccountActive] = useState(false);
 
+  const handleRouteChange = () => {
+    if (router.pathname === "/") {
+      setMenuActive(true);
+    } else {
+      setMenuActive(false);
+    }
+    if (router.pathname === "/menu") {
+      setMenuActive(true);
+    } else {
+      setMenuActive(false);
+    }
+    if (router.pathname === "/signup") {
+      setSignupActive(true);
+    } else {
+      setSignupActive(false);
+    }
+    if (router.pathname === "/sell") {
+      setSellActive(true);
+    } else {
+      setSellActive(false);
+    }
+    if (router.pathname === "/orders") {
+      setOrdersActive(true);
+    } else {
+      setOrdersActive(false);
+    }
+    if (router.pathname === "/account") {
+      setAccountActive(true);
+    } else {
+      setAccountActive(false);
+    }
+  };
+
   useEffect(() => {
     if (router.pathname === "/") setMenuActive(true);
     if (router.pathname === "/menu") setMenuActive(true);
@@ -26,7 +59,9 @@ const Nav = () => {
     if (router.pathname === "/sell") setSellActive(true);
     if (router.pathname === "/orders") setOrdersActive(true);
     if (router.pathname === "/account") setAccountActive(true);
-  }, [menuActive, signupActive, ordersActive, accountActive]);
+  });
+
+  Router.events.on("routeChangeComplete", handleRouteChange);
 
   return (
     <StyledNav>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import Router from "next/router";
@@ -34,6 +34,25 @@ const CreateSandwich = () => {
   const [image, setImage] = useState("");
   const [largeImage, setLargeImage] = useState("");
 
+  const uploadImage = async (e) => {
+    const images = e.target.files;
+    const data = new FormData();
+    data.append("file", images[0]);
+    data.append("upload_preset", "lunchbox");
+
+    const res = await fetch(
+      " https://api.cloudinary.com/v1_1/the-classic-lunchbox/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const image = await res.json();
+    console.log(image);
+
+    setImage(image.secure_url);
+    setLargeImage(image.eager[0].secure_url);
+  };
   return (
     <Mutation
       mutation={CREATE_SANDWICH_MUTATION}
@@ -55,6 +74,16 @@ const CreateSandwich = () => {
           <h2>Sell a sandwich</h2>
           <Error error={error} />
           <fieldset disabled={loading} aria-busy={loading}>
+            <label htmlFor="image">
+              Image
+              <input
+                type="file"
+                id="image"
+                name="image"
+                placeholder="Upload an picture"
+                onChange={uploadImage}
+              />
+            </label>
             <label htmlFor="title">
               Title
               <input
@@ -89,28 +118,6 @@ const CreateSandwich = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
-              />
-            </label>
-            <label htmlFor="image">
-              Image
-              <input
-                type="text"
-                id="image"
-                name="image"
-                placeholder="image"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              />
-            </label>
-            <label htmlFor="largeImage">
-              Large Image
-              <input
-                type="text"
-                id="largeImage"
-                name="largeImage"
-                placeholder="largeImage"
-                value={largeImage}
-                onChange={(e) => setLargeImage(e.target.value)}
               />
             </label>
             <button type="submit">Submit</button>
