@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import Router, { useRouter } from "next/router";
 import styled from "styled-components";
 
-import ALink from "./ALink";
+import FooterLink from "./FooterLink";
 
-const StyledNav = styled.nav`
-  display: flex;
+const StyledFooterNav = styled.nav`
+  padding-right: 2rem;
+  text-align: right;
+  background: ${(props) => props.theme.purple};
 
-  @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    margin: 0 auto;
+  h3 {
+    margin: 0;
+    font-size: 2.75rem;
+    color: ${(props) => props.theme.tan};
   }
 `;
 
-const Nav = () => {
+const FooterNav = () => {
   const router = useRouter();
   const [menuActive, setMenuActive] = useState(false);
   const [signupActive, setSignupActive] = useState(false);
@@ -41,24 +45,36 @@ const Nav = () => {
   Router.events.on("routeChangeComplete", handleRouteChange);
 
   return (
-    <StyledNav>
-      <ALink href="/menu" active={menuActive}>
-        Menu
-      </ALink>
-      <ALink href="/sell" active={sellActive}>
-        Sell
-      </ALink>
-      <ALink href="signup" active={signupActive}>
-        Signup
-      </ALink>
-      <ALink href="orders" active={ordersActive}>
-        Orders
-      </ALink>
-      <ALink href="account" active={accountActive}>
-        Account
-      </ALink>
-    </StyledNav>
+    <StyledFooterNav>
+      <ul>
+        <li>
+          <FooterLink active={menuActive} href="/menu">
+            Menu
+          </FooterLink>
+        </li>
+        <li>
+          <FooterLink active={sellActive} href="/sell">
+            Sell
+          </FooterLink>
+        </li>
+        <li>
+          <FooterLink active={signupActive} href="signup">
+            Signup
+          </FooterLink>
+        </li>
+        <li>
+          <FooterLink active={ordersActive} href="orders">
+            Orders
+          </FooterLink>
+        </li>
+        <li>
+          <FooterLink active={accountActive} href="account">
+            Accouts
+          </FooterLink>
+        </li>
+      </ul>
+    </StyledFooterNav>
   );
 };
 
-export default Nav;
+export default FooterNav;

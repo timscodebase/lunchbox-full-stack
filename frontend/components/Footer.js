@@ -1,6 +1,6 @@
-import Link from "next/link";
 import styled from "styled-components";
-import Router from "next/router";
+
+import FooterNav from "./FooterNav";
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -15,16 +15,6 @@ const StyledFooter = styled.footer`
     margin: 0;
     font-size: 2.75rem;
     color: ${(props) => props.theme.tan};
-  }
-
-  a {
-    display: inline-block;
-    color: ${(props) => props.theme.tan};
-
-    &:hover {
-      color: ${(props) => props.theme.white};
-      box-shadow: 0 1px 0 ${(props) => props.theme.tan};
-    }
   }
 
   .left,
@@ -51,8 +41,6 @@ const StyledFooter = styled.footer`
   }
 `;
 
-// Router.events.on('routeChangeComplete', handleRouteChange)
-
 const Footer = () => (
   <StyledFooter>
     <section className="left">
@@ -64,33 +52,7 @@ const Footer = () => (
     </section>
     <section className="middle">Hi</section>
     <section className="right">
-      <ul>
-        <li>
-          <Link href="/menu">
-            <a>Menu</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/sell">
-            <a>Sell</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="signup">
-            <a>Signup</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="orders">
-            <a>Orders</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="account">
-            <a>Accouts</a>
-          </Link>
-        </li>
-      </ul>
+      <FooterNav />
     </section>
   </StyledFooter>
 );

@@ -31,7 +31,6 @@ const A = styled.a`
 
 const ALink = ({ children, active, href }) => {
   const [isHovered, setIsHovered] = useState(false);
-  // const [active, setActive] = useState(false);
 
   return (
     <Link href={href}>
