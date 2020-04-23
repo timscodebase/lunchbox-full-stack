@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import FooterNav from "./FooterNav";
+import SocialGrid from "./SocialGrid";
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -24,7 +25,7 @@ const StyledFooter = styled.footer`
   }
 
   .left {
-    padding-left: 2rem;
+    padding: 0 2rem;
     background: ${(props) => props.theme.purple};
   }
 
@@ -50,7 +51,9 @@ const Footer = () => (
         peanut butter and jelly sandwich.
       </p>
     </section>
-    <section className="middle">Hi</section>
+    <section className="middle">
+      <SocialGrid />
+    </section>
     <section className="right">
       <FooterNav />
     </section>

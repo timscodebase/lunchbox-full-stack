@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import Header from "../components/Header";
@@ -7,9 +6,6 @@ import Theme from "./Theme";
 import Footer from "./Footer";
 
 import Inner from "../components/styles/Inner";
-
-const pattern =
-  "https://res.cloudinary.com/tihos/image/upload/q_auto/v1585937290/pattern3_btd9kp.png";
 
 const StyledPage = styled.div`
   background: url(${(props) => props.theme.pattern3});
@@ -277,23 +273,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class Page extends Component {
-  state = {
-    lightTheme: true,
-  };
-  render() {
-    return (
-      <ThemeProvider theme={Theme}>
-        <StyledPage>
-          <GlobalStyle />
-          <Meta />
-          <Header />
-          <Inner>{this.props.children}</Inner>
-          <Footer />
-        </StyledPage>
-      </ThemeProvider>
-    );
-  }
-}
+const Page = () => (
+  <ThemeProvider theme={Theme}>
+    <StyledPage>
+      <GlobalStyle />
+      <Meta />
+      <Header />
+      <Inner>{this.props.children}</Inner>
+      <Footer />
+    </StyledPage>
+  </ThemeProvider>
+);
 
 export default Page;
