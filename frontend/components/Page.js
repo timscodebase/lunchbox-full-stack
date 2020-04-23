@@ -273,13 +273,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Page = () => (
+const Page = (props) => (
   <ThemeProvider theme={Theme}>
     <StyledPage>
       <GlobalStyle />
       <Meta />
       <Header />
-      <Inner>{this.props.children}</Inner>
+      <Inner>{props.children}</Inner>
       <Footer />
     </StyledPage>
   </ThemeProvider>
