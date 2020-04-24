@@ -7,8 +7,7 @@ const StyledNav = styled.nav`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    margin: 0 auto;
-    height: 90px;
+    margin-top: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;

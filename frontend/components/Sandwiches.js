@@ -27,8 +27,11 @@ const SandwichesList = styled.div`
   background: ${(props) => props.theme.whiteTrans75};
   margin-top: 1.5rem;
   padding: 1rem;
-  /* box-shadow: ${(props) => props.theme.bs}; */
   border-radius: ${(props) => props.theme.br};
+
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Center = styled.div`

@@ -1,7 +1,10 @@
+import React, { useCallback } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
+
+import useResizeObserver from "../lib/useResizeObserver";
 
 import H1 from "./styles/H1";
 import Logo from "./Logo";
@@ -9,7 +12,7 @@ import Nav from "./Nav";
 
 const A = styled.a`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
@@ -18,13 +21,13 @@ const A = styled.a`
 `;
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto;
   border-bottom: 2px solid ${(props) => props.theme.purple};
   background: rgba(255, 255, 255, 0.75);
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -49,20 +52,29 @@ Router.events.on("routeChangeError", (e) => {
   NProgress.done();
 });
 
-const Header = () => (
-  <>
-    <StyledHeader>
-      <Link href="/">
-        <A>
-          <Logo />
-          <H1>The Classic Lunchbox</H1>
-        </A>
-      </Link>
-      <Nav />
-    </StyledHeader>
-    <SubBar placeholder="Search" />
-    <div>Cart</div>
-  </>
-);
+const Header = () => {
+  const [ref, { contentRect }] = useResizeObserver();
+  const getContentRect = useCallback(
+    (key) => {
+      return contentRect && Math.round(contentRect[key]);
+    },
+    [contentRect]
+  );
+  return (
+    <>
+      <StyledHeader ref={ref}>
+        <Link href="/">
+          <A>
+            <Logo width={getContentRect("width")} />
+            <H1>The Classic Lunchbox</H1>
+          </A>
+        </Link>
+        <Nav />
+      </StyledHeader>
+      <SubBar placeholder="Search" />
+      <div>Cart</div>
+    </>
+  );
+};
 
 export default Header;

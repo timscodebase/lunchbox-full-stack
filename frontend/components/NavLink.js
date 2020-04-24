@@ -8,11 +8,29 @@ const A = styled.a`
   display: flex;
   height: 100%;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
   background: ${(props) =>
     props.active ? props.theme.brightPink : "transparent"};
   color: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
   font-weight: ${(props) => (props.active ? "bolder" : "normal")};
+
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    display: flex;
+    height: 58.75px;
+    font-size: 1.5rem;
+    color: ${(props) =>
+      props.active ? props.theme.white : props.theme.brightPink};
+    background: ${(props) =>
+      props.active ? props.theme.brightPink : "transparent"};
+
+    &:hover {
+      color: ${(props) =>
+        props.active ? props.theme.brightPink : props.theme.white};
+      background: ${(props) =>
+        props.active ? "transparent" : props.theme.brightPink};
+    }
+  }
 `;
 
 const NavLink = ({ children, href }) => {

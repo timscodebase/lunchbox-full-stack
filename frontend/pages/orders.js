@@ -1,8 +1,8 @@
-import Link from "next/link";
+import H2 from "../components/H2";
 
 const Order = (props) => (
   <div>
-    <p>Order</p>
+    <H2>Order</H2>
   </div>
 );
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const H1 = styled.h1`
-  font-size: 12rem;
+  font-size: 8rem;
   background: ${(props) => props.theme.lg};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -9,7 +9,7 @@ const H1 = styled.h1`
   padding-bottom: 1rem;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    font-size: 6rem;
+    font-size: 10rem;
   }
 `;
 

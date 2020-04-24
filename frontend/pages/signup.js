@@ -1,8 +1,8 @@
-import Link from "next/link";
+import H2 from "../components/H2";
 
 const Signup = (props) => (
   <div>
-    <p>Signup</p>
+    <H2>SignuH2</p>
   </div>
 );
 

@@ -6,12 +6,22 @@ const StyledLogo = styled.img`
   }};
 `;
 
-const LogoSrc =
-  "https://res.cloudinary.com/tihos/image/upload/c_scale,e_auto_brightness,w_180/v1586239047/The%20Classic%20Lunchbox/The_Classic_Lunchbox_Logo_transperent_1024.png";
+const LogoSrcx90 = `https://res.cloudinary.com/the-classic-lunchbox/image/upload/c_scale,e_auto_brightness,q_auto,w_90/v1587612370/site_images/logo_rqm8zl.png`;
+const LogoSrcx360 = `https://res.cloudinary.com/the-classic-lunchbox/image/upload/c_scale,e_auto_brightness,q_auto,w_360/v1587612370/site_images/logo_rqm8zl.png`;
+const logoSrcSet = `${LogoSrcx360} 1000w`;
 
 const LocalLogoSrc = "/logo.png";
-const Logo = () => (
-  <StyledLogo small width="180" src={LocalLogoSrc} alt="The Classic LunchBox" />
+const Logo = ({ width }) => (
+  <img
+    src={() => {
+      if (width >= 1000) {
+        return LogoSrcx90;
+      } else {
+        return LogoSrcx360;
+      }
+    }}
+    alt="The Classic LunchBox"
+  />
 );
 
 export default Logo;

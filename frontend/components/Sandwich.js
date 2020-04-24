@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-import Title from "./styles/Title";
-import SandwichStyle from "./styles/SandwichStyles";
-import PriceTag from "./styles/PriceTag";
 import formatMoney from "../lib/formatMoney";
+
+import Title from "./styles/Title";
+import PriceTag from "./styles/PriceTag";
+import SandwichStyle from "./styles/SandwichStyles";
 
 class Sandwich extends Component {
   static propTypes = {

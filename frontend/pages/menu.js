@@ -1,9 +1,10 @@
-import Link from "next/link";
 import Sandwiches from "../components/Sandwiches";
+
+import H2 from "../components/H2";
 
 const Menu = (props) => (
   <div>
-    <h2>Menu</h2>
+    <H2>Menu</H2>
     <Sandwiches />
   </div>
 );

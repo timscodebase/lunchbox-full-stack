@@ -1,5 +1,6 @@
 const Theme = {
   white: "#eee",
+  brightWhite: "#fff",
   whiteTrans75: "rgba(255, 255, 255, 0.75)",
   tan: "#dfa456",
   brown: "#793817",
@@ -10,6 +11,8 @@ const Theme = {
   purple: "#6e0078",
   maxWidth: "1000px",
   tabletMQ: "800px",
+  smallLogoSize: "120",
+  largeLogoSize: "240",
   // Padding
   padding: "1rem",
   // Box Shadows
