@@ -54,7 +54,8 @@
     "graphql-tools": "^4.0.7",
     "jest": "^23.6.0",
     "jest-transform-graphql": "^2.1.0",
-    "react-inlinesvg": "^1.2.0"
+    "react-inlinesvg": "^1.2.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",

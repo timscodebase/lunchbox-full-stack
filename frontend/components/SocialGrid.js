@@ -9,14 +9,23 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const StyledSocialGrid = styled.div`
-  height: 155px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  font-size: 5rem;
+  height: ${(props) => props.height}px;
 
-  a,
-  .svg-inline--fa {
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 3.5rem;
+    height: 90px;
+
+    a {
+      height: 90px;
+    }
+  }
+
+  a {
     display: block;
-    height: 77.5px;
     color: ${(props) => props.theme.brightPink};
 
     div {
@@ -24,13 +33,20 @@ const StyledSocialGrid = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 3rem;
+    }
+  }
+
+  a:hover,
+  a:hover {
+    div {
+      color: ${(props) => props.theme.white};
+      background: ${(props) => props.theme.brightPink};
     }
   }
 `;
 
-const SocialGrid = () => (
-  <StyledSocialGrid>
+const SocialGrid = ({ height }) => (
+  <StyledSocialGrid height={height}>
     <a href="//facebook.com/theclassiclunchbox" target="_blank">
       <div>
         <FontAwesomeIcon icon={faFacebookF} />
