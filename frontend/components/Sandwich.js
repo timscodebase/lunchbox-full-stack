@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
+import DeleteSandwich from "./DeleteSandwich";
 import formatMoney from "../lib/formatMoney";
 
 import Title from "./styles/Title";
@@ -54,7 +55,7 @@ class Sandwich extends Component {
               <a>Edit</a>
             </Link>
             <button>Add To Cart</button>
-            <button>Delete</button>
+            <DeleteSandwich id={id}>Delete Sandwich</DeleteSandwich>
           </div>
         </SandwichStyle>
       </>

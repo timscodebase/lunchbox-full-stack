@@ -1,8 +1,8 @@
+const { forwardTo } = require("prisma-binding");
+
 const Query = {
-  async sandwiches(parent, args, ctx, info) {
-    const sandwiches = await ctx.db.query.sandwiches();
-    return sandwiches;
-  },
+  sandwiches: forwardTo("db"),
+  sandwich: forwardTo("db"),
 };
 
 module.exports = Query;

@@ -83,6 +83,7 @@ const CreateSandwich = () => {
                 placeholder="Upload an picture"
                 onChange={uploadImage}
               />
+              {image && <img src={image} alt="Upload Preview" />}
             </label>
             <label htmlFor="title">
               Title

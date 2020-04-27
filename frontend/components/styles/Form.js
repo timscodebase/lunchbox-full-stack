@@ -39,12 +39,16 @@ const Form = styled.form`
   button,
   input[type="submit"] {
     width: auto;
-    background: red;
-    color: white;
-    border: 0;
+    border: 2px solid ${(props) => props.theme.brightPink};
+    color: ${(props) => props.theme.brightPink};
     font-size: 2rem;
-    font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+
+    &:hover {
+      background: ${(props) => props.theme.brightPink};
+      color: ${(props) => props.theme.white};
+    }
   }
   fieldset {
     border: 0;

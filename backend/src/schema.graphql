@@ -8,8 +8,18 @@ type Mutation {
     largeImage: String
     price: Int
   ): Sandwich!
+
+  updateSandwich(
+    id: ID!
+    title: String
+    description: String
+    price: Int
+  ): Sandwich!
+
+  deleteSandwich(id: ID!): Sandwich
 }
 
 type Query {
   sandwiches: [Sandwich]!
+  sandwich(where: SandwichWhereUniqueInput!): Sandwich
 }
