@@ -5,6 +5,7 @@ const Title = styled.h3`
   text-align: center;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   a {
+    position: relative;
     border: 2px solid ${(props) => props.theme.purple};
     background: ${(props) => props.theme.whiteTrans75};
     display: inline;

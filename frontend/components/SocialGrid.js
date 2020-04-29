@@ -8,11 +8,16 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
+const H3 = styled.h3`
+  margin-top: 1rem !important;
+  color: ${(props) => props.theme.brightPink} !important;
+`;
+
 const StyledSocialGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 5rem;
-  height: ${(props) => props.height}px;
+  height: 16vw;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -46,28 +51,31 @@ const StyledSocialGrid = styled.div`
 `;
 
 const SocialGrid = ({ height }) => (
-  <StyledSocialGrid height={height}>
-    <a href="//facebook.com/theclassiclunchbox" target="_blank">
-      <div>
-        <FontAwesomeIcon icon={faFacebookF} />
-      </div>
-    </a>
-    <a href="//twitter.com/LunchboxClassic" target="_blank">
-      <div>
-        <FontAwesomeIcon icon={faTwitter} />
-      </div>
-    </a>
-    <a href="//pinterest.com/theclassiclunchbox/" target="_blank">
-      <div>
-        <FontAwesomeIcon icon={faPinterestP} />
-      </div>
-    </a>
-    <a href="//instagram.com/theclassiclunchbox/" target="_blank">
-      <div>
-        <FontAwesomeIcon icon={faInstagram} />
-      </div>
-    </a>
-  </StyledSocialGrid>
+  <>
+    <H3>We are social</H3>
+    <StyledSocialGrid height={height}>
+      <a href="//facebook.com/theclassiclunchbox" target="_blank">
+        <div>
+          <FontAwesomeIcon icon={faFacebookF} />
+        </div>
+      </a>
+      <a href="//twitter.com/LunchboxClassic" target="_blank">
+        <div>
+          <FontAwesomeIcon icon={faTwitter} />
+        </div>
+      </a>
+      <a href="//pinterest.com/theclassiclunchbox/" target="_blank">
+        <div>
+          <FontAwesomeIcon icon={faPinterestP} />
+        </div>
+      </a>
+      <a href="//instagram.com/theclassiclunchbox/" target="_blank">
+        <div>
+          <FontAwesomeIcon icon={faInstagram} />
+        </div>
+      </a>
+    </StyledSocialGrid>
+  </>
 );
 
 export default SocialGrid;

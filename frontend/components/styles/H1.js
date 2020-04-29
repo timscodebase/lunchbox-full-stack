@@ -9,7 +9,7 @@ const H1 = styled.h1`
   padding-bottom: 1rem;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 `;
 

@@ -16,21 +16,30 @@ const Item = styled.div`
     line-height: 2;
     font-weight: 300;
     flex-grow: 1;
-    padding: 0 3rem;
+    padding: 40px 3rem 2rem 3rem;
     font-size: 1.5rem;
+    margin: -22px 0 1px 0;
+    color: ${(props) => props.theme.white};
+    background: ${(props) => props.theme.brown};
   }
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid ${(props) => props.theme.lightgrey};
+    border-top: 1px solid ${(props) => props.theme.brightPink};
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    background: ${(props) => props.theme.lightgrey};
+    color: ${(props) => props.theme.brightPink};
+
     & > * {
-      background: white;
       border: 0;
-      font-size: 1rem;
+      font-size: 14px;
       padding: 1rem;
+      background: white;
+      color: ${(props) => props.theme.brightPink};
+      &:hover {
+        color: ${(props) => props.theme.white};
+        background: ${(props) => props.theme.brightPink};
+      }
     }
   }
 `;

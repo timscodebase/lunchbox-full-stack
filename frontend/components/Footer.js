@@ -1,7 +1,4 @@
-import React, { useCallback } from "react";
 import styled from "styled-components";
-
-import useResizeObserver from "../lib/useResizeObserver";
 
 import FooterNav from "./FooterNav";
 import SocialGrid from "./SocialGrid";
@@ -67,15 +64,8 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = () => {
-  const [ref, { contentRect }] = useResizeObserver();
-  const getContentRect = useCallback(
-    (key) => {
-      return contentRect && Math.round(contentRect[key]);
-    },
-    [contentRect]
-  );
   return (
-    <StyledFooter ref={ref}>
+    <StyledFooter>
       <section className="left">
         <h3>The Classic Lunchbox</h3>
         <p>
@@ -84,7 +74,7 @@ const Footer = () => {
         </p>
       </section>
       <section className="middle">
-        <SocialGrid height={getContentRect("height")} />
+        <SocialGrid />
       </section>
       <section className="right">
         <h3>Navigation</h3>

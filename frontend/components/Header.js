@@ -14,10 +14,6 @@ const A = styled.a`
   display: flex;
   /* justify-content: center; */
   align-items: center;
-
-  @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    flex-direction: column;
-  }
 `;
 
 const StyledHeader = styled.header`

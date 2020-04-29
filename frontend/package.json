@@ -1,7 +1,7 @@
 {
   "name": "the-classic-lunchbox-frontend",
   "version": "1.0.0",
-  "description": "Sick Fits! An example React, GraphQL, Next and Apollo",
+  "description": "The Classic Lunchbox Website",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
@@ -41,6 +41,7 @@
     "react-adopt": "^0.6.0",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.13.1",
+    "react-resize-observer-hook": "0.0.2",
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^2.9.0",
     "styled-components": "^5.1.0",

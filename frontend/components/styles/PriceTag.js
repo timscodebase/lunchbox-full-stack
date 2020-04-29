@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const PriceTag = styled.span`
   background: ${(props) => props.theme.brightPink};
-  transform: rotate(3deg);
+  transform: rotate(12deg);
   color: white;
   font-weight: 600;
   padding: 5px;
@@ -11,7 +11,7 @@ const PriceTag = styled.span`
   display: inline-block;
   position: absolute;
   top: -3px;
-  right: -3px;
+  right: -12px;
   border-radius: 5px;
 `;
 

@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-const StyledH2Wrap = styled.div`
+const StyledH2Wrap = styled.span`
+  position: relative;
   background: ${(props) => props.theme.whiteTrans75};
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 8px;
+  padding: 0.75rem 0.75rem 0 0.75rem;
+  display: inline-block;
+  margin: -1rem auto -1rem auto;
+  border-radius: 6px;
+  border: 1px solid ${(props) => props.theme.brightPink};
 `;
 const StyledH2 = styled.h2`
   margin: 0 auto;
@@ -15,7 +20,7 @@ const StyledH2 = styled.h2`
   padding-bottom: 1rem;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    font-size: 8rem;
+    font-size: 6rem;
   }
 `;
 

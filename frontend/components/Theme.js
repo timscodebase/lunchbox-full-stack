@@ -2,6 +2,7 @@ const Theme = {
   white: "#eee",
   brightWhite: "#fff",
   whiteTrans75: "rgba(255, 255, 255, 0.75)",
+  whiteTrans50: "rgba(255, 255, 255, 0.5)",
   tan: "#dfa456",
   brown: "#793817",
   brownTrans: "#793817c4",

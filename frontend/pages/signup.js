@@ -2,7 +2,7 @@ import H2 from "../components/H2";
 
 const Signup = (props) => (
   <div>
-    <H2>SignuH2</p>
+    <H2>Signup</H2>
   </div>
 );
 
