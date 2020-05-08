@@ -17,9 +17,16 @@ type Mutation {
   ): Sandwich!
 
   deleteSandwich(id: ID!): Sandwich
+  signup(email: String!, name: String!, password: String!): User!
 }
 
 type Query {
-  sandwiches: [Sandwich]!
+  sandwiches(
+    where: SandwichWhereInput
+    orderBy: SandwichOrderByInput
+    skip: Int
+    first: Int
+  ): [Sandwich]!
   sandwich(where: SandwichWhereUniqueInput!): Sandwich
+  sandwichesConnection(where: SandwichWhereInput): SandwichConnection!
 }

@@ -4,10 +4,19 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 
 import Sandwich from "./Sandwich";
+import Pagination from "./Pagination";
+import { perPage } from "../config";
 
 const ALL_SANDWICHES_QUERY = gql`
-  query ALL_SANDWICHES_QUERY {
-    sandwiches {
+  query ALL_SANDWICHES_QUERY(
+    $skip: Int = 0
+    $first: Int = ${perPage}
+  ) {
+    sandwiches(
+      skip: $skip
+      first: $first
+      orderBy: createdAt_DESC
+    ) {
       id
       title
       price
@@ -38,26 +47,30 @@ const Center = styled.div`
   text-align: center;
 `;
 
-class Sandwiches extends Component {
-  render() {
-    return (
-      <Center>
-        <Query query={ALL_SANDWICHES_QUERY}>
-          {({ data, error, loading }) => {
-            if (loading) return <p>loading</p>;
-            if (error) return <p>Error: {error.message}</p>;
-            return (
-              <SandwichesList>
-                {data.sandwiches.map((sandwich) => (
-                  <Sandwich key={sandwich.id} sandwich={sandwich} />
-                ))}
-              </SandwichesList>
-            );
-          }}
-        </Query>
-      </Center>
-    );
-  }
+export default function Sandwiches({ page }) {
+  return (
+    <Center>
+      <Pagination page={page} />
+      <Query
+        query={ALL_SANDWICHES_QUERY}
+        // fetchPolicy="network-only"
+        variables={{
+          skip: page * perPage - perPage,
+        }}
+      >
+        {({ data, error, loading }) => {
+          if (loading) return <p>loading</p>;
+          if (error) return <p>Error: {error.message}</p>;
+          return (
+            <SandwichesList>
+              {data.sandwiches.map((sandwich) => (
+                <Sandwich key={sandwich.id} sandwich={sandwich} />
+              ))}
+            </SandwichesList>
+          );
+        }}
+      </Query>
+      <Pagination page={page} />
+    </Center>
+  );
 }
-
-export default Sandwiches;

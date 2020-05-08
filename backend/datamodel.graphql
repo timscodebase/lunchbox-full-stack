@@ -1,7 +1,26 @@
+enum Permission {
+  ADMIN
+  USER
+  SANDWICHCREATE
+  SANDWICHUPDATE
+  SANDWICHDELETE
+  PERMISSIONUPDATE
+}
+
+enum Flag {
+  FEATURED
+  ON_SALE
+  OUT_OF_STOCK
+}
+
 type User {
   id: ID! @id
   email: String @unique
   name: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy: RELATION)
 }
 
 type Sandwich {
@@ -11,6 +30,7 @@ type Sandwich {
   image: String
   largeImage: String
   price: Int!
+  flag: [Flag] @scalarList(strategy: RELATION)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   # user: User!

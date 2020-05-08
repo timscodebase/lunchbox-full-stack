@@ -7,7 +7,7 @@ const StyledH2Wrap = styled.span`
   padding: 0.75rem 0.75rem 0 0.75rem;
   display: inline-block;
   margin: -1rem auto -1rem auto;
-  border-radius: 6px;
+  border-radius: ${(props) => props.theme.br};
   border: 1px solid ${(props) => props.theme.brightPink};
 `;
 const StyledH2 = styled.h2`

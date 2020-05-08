@@ -1,5 +1,5 @@
 const Theme = {
-  white: "#eee",
+  white: "#fff",
   brightWhite: "#fff",
   whiteTrans75: "rgba(255, 255, 255, 0.75)",
   whiteTrans50: "rgba(255, 255, 255, 0.5)",
@@ -23,6 +23,7 @@ const Theme = {
   lg: "linear-gradient(138deg, #dfa456, #793817, #ff0040, #ae0e60, #dfa456);",
   // Border Radius
   br: "10px",
+  borderRadius: "5px",
   // Background Patterns
   pattern:
     "https://res.cloudinary.com/tihos/image/upload/q_auto/v1585937290/pattern3_btd9kp.png",

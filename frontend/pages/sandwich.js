@@ -1,11 +1,10 @@
-import { useRouter, useState, useEffect } from "next/router";
-import H2 from "../components/H2";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import { Mutation, Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 
-import formatMoney from "../lib/formatMoney";
-import Sandwich from "../components/Sandwich";
+import SingleSandwich from "../components/SingleSandwich";
 
 const SINGLE_SANDWICH_QUERY = gql`
   query SINGLE_SANDWICH_QUERY($id: ID!) {
@@ -15,6 +14,7 @@ const SINGLE_SANDWICH_QUERY = gql`
       description
       price
       image
+      largeImage
     }
   }
 `;
@@ -47,10 +47,37 @@ const SandwichPage = () => {
           return <p>No Sandwich Found for ID {router.query.id}</p>;
         return (
           <>
-            <H2>{data.sandwich.title}</H2>
-            <SandwichWrapper>
-              <Sandwich sandwich={data.sandwich} />
-            </SandwichWrapper>
+            <Head>
+              <meta charset="utf-8" />
+              <meta name="description" content={data.sandwich.description} />
+              <meta name="image" content={data.sandwich.image} />
+              <meta itemprop="name" content={data.sandwich.title} />
+              <meta
+                itemprop="description"
+                content={data.sandwich.description}
+              />
+              <meta itemprop="image" content={data.sandwich.image} />
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:title" content={data.sandwich.title} />
+              <meta
+                name="twitter:description"
+                content={data.sandwich.description}
+              />
+              <meta name="twitter:site" content="@LunchboxClassic" />
+              <meta name="twitter:creator" content="@webruin" />
+              <meta name="twitter:image:src" content={data.sandwich.image} />
+              <meta name="og:title" content={data.sandwich.title} />
+              <meta name="og:description" content={data.sandwich.description} />
+              <meta name="og:image" content={data.sandwich.image} />
+              <meta name="og:url" content={window.location} />
+              <meta name="og:site_name" content={data.sandwich.title} />
+              <meta name="fb:admins" content="2548285428824960" />
+              <meta name="og:type" content="article" />
+              <meta name="article:section" content="Food" />
+              <meta name="article:author" content="Tim Smith" />
+              <meta name="article:tag" content="Food" />
+            </Head>
+            <SingleSandwich sandwich={data.sandwich} />
           </>
         );
       }}

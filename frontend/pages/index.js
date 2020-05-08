@@ -2,10 +2,10 @@ import Sandwiches from "../components/Sandwiches";
 
 import H2 from "../components/H2";
 
-const Home = (props) => (
+const Home = ({ query }) => (
   <div>
     <H2>Menu</H2>
-    <Sandwiches />
+    <Sandwiches page={parseFloat(query.page) || 1} />
   </div>
 );
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const PaginationStyles = styled.div`
   text-align: center;
@@ -8,17 +8,22 @@ const PaginationStyles = styled.div`
   justify-content: center;
   align-content: center;
   margin: 2rem 0;
-  border: 1px solid ${props => props.theme.lightgrey};
-  border-radius: 10px;
+  border: 1px solid ${(props) => props.theme.purple};
+  background: ${(props) => props.theme.whiteTrans75};
+  border-radius: ${(props) => props.theme.br};
   & > * {
     margin: 0;
     padding: 15px 30px;
-    border-right: 1px solid ${props => props.theme.lightgrey};
+    border-right: 1px solid ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.purple};
     &:last-child {
       border-right: 0;
     }
   }
-  a[aria-disabled='true'] {
+  a {
+    color: ${(props) => props.theme.purple};
+  }
+  a[aria-disabled="true"] {
     color: grey;
     pointer-events: none;
   }
