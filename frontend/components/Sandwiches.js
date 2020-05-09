@@ -50,7 +50,6 @@ const Center = styled.div`
 export default function Sandwiches({ page }) {
   return (
     <Center>
-      <Pagination page={page} />
       <Query
         query={ALL_SANDWICHES_QUERY}
         // fetchPolicy="network-only"

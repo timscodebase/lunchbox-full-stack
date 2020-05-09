@@ -71,7 +71,6 @@ const CreateSandwich = () => {
             });
           }}
         >
-          <h2>Sell a sandwich</h2>
           <Error error={error} />
           <fieldset disabled={loading} aria-busy={loading}>
             <label htmlFor="image">

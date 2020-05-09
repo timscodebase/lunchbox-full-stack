@@ -33,7 +33,7 @@ const A = styled.a`
   }
 `;
 
-const NavLink = ({ children, href }) => {
+export default function NavLink({ children, href }) {
   const [active, setActive] = useState(false);
 
   const router = useRouter();
@@ -54,6 +54,4 @@ const NavLink = ({ children, href }) => {
       </A>
     </Link>
   );
-};
-
-export default NavLink;
+}

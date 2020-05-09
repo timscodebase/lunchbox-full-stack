@@ -12,7 +12,7 @@ const StyledH2Wrap = styled.span`
 `;
 const StyledH2 = styled.h2`
   margin: 0 auto;
-  font-size: 12rem;
+  font-size: 8rem;
   background: ${(props) => props.theme.lg};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

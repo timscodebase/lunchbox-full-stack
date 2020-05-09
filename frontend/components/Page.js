@@ -196,6 +196,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-family: "Open Sans", sans-serif;
     font-size: 2rem;
+    overflow-x: hidden;
   }
 
   /* Fonts */
@@ -259,7 +260,8 @@ const GlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  button {
     font-weight: normal;
     font-family: "Quicksand", "Raleway", sans-serif;
   }

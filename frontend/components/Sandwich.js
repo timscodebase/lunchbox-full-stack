@@ -41,7 +41,7 @@ const Sandwich = ({ sandwich }) => {
 };
 
 export default Sandwich;
-Sandwich.PropTypes = {
+Sandwich.propTypes = {
   sandwich: PropTypes.shape({
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

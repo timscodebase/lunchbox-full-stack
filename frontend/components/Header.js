@@ -1,10 +1,7 @@
-import React, { useCallback } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
-
-import useResizeObserver from "../lib/useResizeObserver";
 
 import H1 from "./styles/H1";
 import Logo from "./Logo";
@@ -49,19 +46,12 @@ Router.events.on("routeChangeError", (e) => {
 });
 
 const Header = () => {
-  const [ref, { contentRect }] = useResizeObserver();
-  const getContentRect = useCallback(
-    (key) => {
-      return contentRect && Math.round(contentRect[key]);
-    },
-    [contentRect]
-  );
   return (
     <>
-      <StyledHeader ref={ref}>
+      <StyledHeader>
         <Link href="/">
           <A>
-            <Logo width={getContentRect("width")} />
+            <Logo />
             <H1>The Classic Lunchbox</H1>
           </A>
         </Link>
