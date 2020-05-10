@@ -26,12 +26,7 @@ const Theme = {
   borderRadius: "5px",
   // Background Patterns
   pattern:
-    "https://res.cloudinary.com/tihos/image/upload/q_auto/v1585937290/pattern3_btd9kp.png",
-  pattern2: "/static/pattern2.png",
-  pattern3:
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPElEQVQYlWO4vzg07f7i0LT/eAADAwMDAzEK/////58Bm+B63vi09bzxadRTiNVqot1IkWewaaZMITYAAOJMa6SCKLiFAAAAAElFTkSuQmCC",
-  pattern4:
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAMklEQVQImWO4tyjMFxdmuLcozJcBF4BJlluI+6JjFEm8OhkYGBg28Cb4wjBWSbw6YXIAFqsshfQF4MoAAAAASUVORK5CYII=",
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPElEQVQYlWO4vzh05v3FoTP/EwAMRCvEJtjH5Tuzj8t3JvUUYrW6wlxsZoW5GGE3Eq0QmyC2kKBMITYAAJMVbbAfO6KTAAAAAElFTkSuQmCC",
 };
 
 // Pattern 2 url;

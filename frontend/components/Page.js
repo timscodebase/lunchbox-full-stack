@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import Inner from "../components/styles/Inner";
 
 const StyledPage = styled.div`
-  background: url(${(props) => props.theme.pattern3});
+  background: url(${(props) => props.theme.pattern});
   color: ${(props) => props.theme.pink};
 `;
 
