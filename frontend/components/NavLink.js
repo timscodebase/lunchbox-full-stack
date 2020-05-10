@@ -23,13 +23,6 @@ const A = styled.a`
       props.active ? props.theme.white : props.theme.brightPink};
     background: ${(props) =>
       props.active ? props.theme.brightPink : "transparent"};
-
-    &:hover {
-      color: ${(props) =>
-        props.active ? props.theme.brightPink : props.theme.white};
-      background: ${(props) =>
-        props.active ? "transparent" : props.theme.brightPink};
-    }
   }
 `;
 

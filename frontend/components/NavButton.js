@@ -21,13 +21,7 @@ const Button = styled.button`
     height: 58.75px;
     font-size: 1.5rem;
     color: ${(props) => props.theme.brightPink};
-    background: ${(props) => props.theme.brightPink};
-
-    &:hover {
-      color: ${(props) => props.theme.white};
-      background: ${(props) => props.theme.white};
-      font-weight: bolder;
-    }
+    background: transparent;
   }
 `;
 

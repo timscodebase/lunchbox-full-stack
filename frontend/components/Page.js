@@ -1,4 +1,5 @@
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { useRouter } from "next/router";
 
 import Header from "../components/Header";
 import Meta from "../components/Meta";
@@ -19,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
   *::before, *::after { box-sizing: inherit };
   a {
     text-decoration: none;
+  }
+  body {
+    overflow-x: hidden;
   }
   ul {
     padding: 0;
@@ -275,16 +279,33 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Page = (props) => (
-  <ThemeProvider theme={Theme}>
-    <StyledPage>
-      <GlobalStyle />
-      <Meta />
-      <Header />
-      <Inner>{props.children}</Inner>
-      <Footer />
-    </StyledPage>
-  </ThemeProvider>
-);
+const Page = (props) => {
+  const router = useRouter();
+  if (router.pathname != "/") {
+    return (
+      <ThemeProvider theme={Theme}>
+        <StyledPage>
+          <GlobalStyle />
+          <Meta />
+          <Header />
+          <Inner>{props.children}</Inner>
+          <Footer />
+        </StyledPage>
+      </ThemeProvider>
+    );
+  }
+
+  return (
+    <ThemeProvider theme={Theme}>
+      <StyledPage>
+        <GlobalStyle />
+        <Meta />
+        <Header />
+        {props.children}
+        <Footer />
+      </StyledPage>
+    </ThemeProvider>
+  );
+};
 
 export default Page;

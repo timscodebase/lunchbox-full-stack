@@ -9,24 +9,16 @@ import {
 
 const H3 = styled.h3`
   margin-top: 1rem !important;
+  padding-bottom: 1rem !important;
   color: ${(props) => props.theme.brightPink} !important;
 `;
 
 const StyledSocialGrid = styled.div`
+  height: calc(230px - 1rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   font-size: 5rem;
-  height: 16vw;
-
-  @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-size: 3.5rem;
-    height: 90px;
-
-    a {
-      height: 90px;
-    }
-  }
 
   a {
     display: block;
@@ -45,6 +37,16 @@ const StyledSocialGrid = styled.div`
     div {
       color: ${(props) => props.theme.white};
       background: ${(props) => props.theme.brightPink};
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 3.5rem;
+    height: 90px;
+
+    a {
+      height: 90px;
     }
   }
 `;

@@ -12,7 +12,7 @@ const StyledH2Wrap = styled.span`
 `;
 const StyledH2 = styled.h2`
   margin: 0 auto;
-  font-size: 8rem;
+  font-size: 5rem;
   background: ${(props) => props.theme.lg};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -20,7 +20,7 @@ const StyledH2 = styled.h2`
   padding-bottom: 1rem;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 `;
 

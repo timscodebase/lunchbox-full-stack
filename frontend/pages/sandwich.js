@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { Mutation, Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
+import { Query } from "react-apollo";
 
+import Error from "../components/ErrorMessage";
 import SingleSandwich from "../components/SingleSandwich";
 
 const SINGLE_SANDWICH_QUERY = gql`
@@ -32,19 +33,18 @@ const SandwichWrapper = styled.div`
   text-align: center;
 `;
 
-const SandwichPage = () => {
-  const router = useRouter();
+const SandwichPage = ({ query }) => {
   return (
     <Query
       query={SINGLE_SANDWICH_QUERY}
       variables={{
-        id: router.query.id,
+        id: query.id,
       }}
     >
-      {({ data, loading }) => {
+      {({ data, error, loading }) => {
         if (loading) return <p>Loading...</p>;
-        if (!data.sandwich)
-          return <p>No Sandwich Found for ID {router.query.id}</p>;
+        if (error) return <Error error={error} />;
+        if (!data.sandwich) return <p>No Sandwich Found for ID {query.id}</p>;
         return (
           <>
             <Head>

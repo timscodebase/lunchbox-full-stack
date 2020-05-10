@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
@@ -19,12 +19,14 @@ const SIGNUP_MUTATION = gql`
 `;
 
 const StyledSignup = styled.div`
-  width: 300px;
+  width: ${(props) => (props.signupOpen ? "300px" : "0px")};
+  opacity: ${(props) => (props.signupOpen ? "1" : "0")};
+  overflow: ${(props) => (props.signupOpen ? "visible" : "hidden")};
   position: absolute;
   z-index: 2;
-  transition: right 0.5s ease-in;
+  transition: all 0.5s ease-in;
   top: 18px;
-  right: ${(props) => (props.signupOpen ? "18px" : "-316px")};
+  right: 18px;
   background: ${(props) => props.theme.white};
 `;
 
@@ -43,11 +45,15 @@ export default function Signup({ signupOpen, toggle }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
+  useEffect(() => {
+    if (signupOpen === true) document.body.addEventListener("click", toggle);
+  }, []);
+
   return (
-    <Mutation mutation={SIGNUP_MUTATION} variables={email, name, password}>
+    <Mutation mutation={SIGNUP_MUTATION} variables={{ email, name, password }}>
       {(updateSandwich, { loading, error }) => (
         <StyledSignup signupOpen={signupOpen}>
-          <Form onSubmit={() => { }}>
+          <Form onSubmit={() => {}}>
             <Error error={error} />
             <h3>Signup</h3>
             <p>

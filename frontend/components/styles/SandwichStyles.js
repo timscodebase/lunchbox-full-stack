@@ -9,7 +9,7 @@ const Item = styled.div`
   flex-direction: column;
   img {
     width: 100%;
-    height: 400px;
+    height: ${(props) => (props.single ? "auto" : "400px")};
     object-fit: cover;
   }
   p {
