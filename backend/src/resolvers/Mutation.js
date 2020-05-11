@@ -4,9 +4,11 @@ const jwt = require("jsonwebtoken");
 const Mutations = {
   async createSandwich(parent, args, ctx, info) {
     // TODO: Check if they are logged in
+    console.log({ args });
 
     const sandwich = await ctx.db.mutation.createSandwich(
       { data: { ...args } },
+
       info
     );
     return sandwich;

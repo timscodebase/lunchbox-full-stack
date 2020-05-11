@@ -7,6 +7,9 @@ type Mutation {
     image: String
     largeImage: String
     price: Int
+    featured: Boolean
+    onSale: Boolean
+    outOfStock: Boolean
   ): Sandwich!
 
   updateSandwich(
@@ -14,6 +17,9 @@ type Mutation {
     title: String
     description: String
     price: Int
+    featured: Boolean
+    onSale: Boolean
+    outOfStock: Boolean
   ): Sandwich!
 
   deleteSandwich(id: ID!): Sandwich
@@ -29,4 +35,8 @@ type Query {
   ): [Sandwich]!
   sandwich(where: SandwichWhereUniqueInput!): Sandwich
   sandwichesConnection(where: SandwichWhereInput): SandwichConnection!
+  homepageFeaturedSandwiches(
+    where: SandwichWhereInput
+    orderBy: SandwichOrderByInput!
+  ): [Sandwich]!
 }

@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/tim-smith-131869/theclassiclunchbox/dev
-# timestamp: Sun May 03 2020 08:29:44 GMT-0700 (Pacific Daylight Time)
+# source: https://lunchbox-prod-af4e853b0c.herokuapp.com/lunchbox-prod/prod
+# timestamp: Sun May 10 2020 14:26:12 GMT-0700 (Pacific Daylight Time)
 
 type AggregateSandwich {
   count: Int!
@@ -15,12 +15,6 @@ type BatchPayload {
 }
 
 scalar DateTime
-
-enum Flag {
-  FEATURED
-  ON_SALE
-  OUT_OF_STOCK
-}
 
 """
 The `Long` scalar type represents non-fractional signed whole numeric values.
@@ -101,7 +95,9 @@ type Sandwich implements Node {
   image: String
   largeImage: String
   price: Int!
-  flag: [Flag!]!
+  featured: Boolean!
+  onSale: Boolean!
+  outOfStock: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -116,10 +112,6 @@ type SandwichConnection {
   aggregate: AggregateSandwich!
 }
 
-input SandwichCreateflagInput {
-  set: [Flag!]
-}
-
 input SandwichCreateInput {
   id: ID
   title: String!
@@ -127,7 +119,9 @@ input SandwichCreateInput {
   image: String
   largeImage: String
   price: Int!
-  flag: SandwichCreateflagInput
+  featured: Boolean
+  onSale: Boolean
+  outOfStock: Boolean
 }
 
 """An edge in a connection."""
@@ -152,6 +146,12 @@ enum SandwichOrderByInput {
   largeImage_DESC
   price_ASC
   price_DESC
+  featured_ASC
+  featured_DESC
+  onSale_ASC
+  onSale_DESC
+  outOfStock_ASC
+  outOfStock_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -165,7 +165,9 @@ type SandwichPreviousValues {
   image: String
   largeImage: String
   price: Int!
-  flag: [Flag!]!
+  featured: Boolean!
+  onSale: Boolean!
+  outOfStock: Boolean!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -209,17 +211,15 @@ input SandwichSubscriptionWhereInput {
   node: SandwichWhereInput
 }
 
-input SandwichUpdateflagInput {
-  set: [Flag!]
-}
-
 input SandwichUpdateInput {
   title: String
   description: String
   image: String
   largeImage: String
   price: Int
-  flag: SandwichUpdateflagInput
+  featured: Boolean
+  onSale: Boolean
+  outOfStock: Boolean
 }
 
 input SandwichUpdateManyMutationInput {
@@ -228,7 +228,9 @@ input SandwichUpdateManyMutationInput {
   image: String
   largeImage: String
   price: Int
-  flag: SandwichUpdateflagInput
+  featured: Boolean
+  onSale: Boolean
+  outOfStock: Boolean
 }
 
 input SandwichWhereInput {
@@ -462,6 +464,18 @@ input SandwichWhereInput {
 
   """All values greater than or equal the given value."""
   price_gte: Int
+  featured: Boolean
+
+  """All values that are not equal to given value."""
+  featured_not: Boolean
+  onSale: Boolean
+
+  """All values that are not equal to given value."""
+  onSale_not: Boolean
+  outOfStock: Boolean
+
+  """All values that are not equal to given value."""
+  outOfStock_not: Boolean
   createdAt: DateTime
 
   """All values that are not equal to given value."""

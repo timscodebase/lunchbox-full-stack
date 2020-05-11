@@ -71,6 +71,22 @@ const Form = styled.form`
       animation: ${loading} 0.5s linear infinite;
     }
   }
+
+  .flags {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      margin-bottom: 0;
+    }
+
+    input {
+      width: 20px;
+      margin: 0 20px;
+    }
+  }
 `;
 
 export default Form;

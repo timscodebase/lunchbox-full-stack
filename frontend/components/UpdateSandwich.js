@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
+import Input from "./Input";
 
 const SINGLE_SANDWICH_QUERY = gql`
   query SINGLE_SANDWICH_QUERY($id: ID!) {
@@ -12,6 +13,9 @@ const SINGLE_SANDWICH_QUERY = gql`
       title
       description
       price
+      featured
+      onSale
+      outOfStock
     }
   }
 `;
@@ -21,17 +25,26 @@ const UPDATE_SANDWICH_MUTATION = gql`
     $title: String
     $description: String
     $price: Int
+    $featured: Boolean
+    $onSale: Boolean
+    $outOfStock: Boolean
   ) {
     updateSandwich(
       id: $id
       title: $title
       description: $description
       price: $price
+      featured: $featured
+      onSale: $onSale
+      outOfStock: $outOfStock
     ) {
       id
       title
       description
       price
+      featured
+      onSale
+      outOfStock
     }
   }
 `;
@@ -65,6 +78,7 @@ class UpdateSandwich extends Component {
         }}
       >
         {({ data, loading }) => {
+          console.log(data);
           if (loading) return <p>Loading...</p>;
           if (!data.sandwich)
             return <p>No Sandwich Found for ID {this.props.id}</p>;
@@ -114,6 +128,38 @@ class UpdateSandwich extends Component {
                         onChange={this.handleChange}
                       />
                     </label>
+                    <section className="flags">
+                      <label htmlFor="featured">Featured</label>
+                      <Input
+                        name="featured"
+                        checked={data.sandwich.featured}
+                        toggle={(e) =>
+                          this.setState({
+                            featured: e.target.value == "true" ? true : false,
+                          })
+                        }
+                      />
+                      <label htmlFor="onSale">On Sale</label>
+                      <Input
+                        name="onSale"
+                        checked={data.sandwich.onSale}
+                        toggle={(e) =>
+                          this.setState({
+                            onSale: e.target.value == "true" ? true : false,
+                          })
+                        }
+                      />
+                      <label htmlFor="outOfStock">Out Of Stock</label>
+                      <Input
+                        name="outOfStock"
+                        checked={data.sandwich.outOfStock}
+                        toggle={(e) =>
+                          this.setState({
+                            outOfStock: e.target.value == "true" ? true : false,
+                          })
+                        }
+                      />
+                    </section>
                     <button type="submit">
                       Sav{loading ? "ing" : "e"} Changes
                     </button>
