@@ -143,9 +143,7 @@ export default function CreateSandwich() {
                 id="featured"
                 name="featured"
                 value="true"
-                onChange={(e) =>
-                  setFeatured(e.target.value == "true" ? true : false)
-                }
+                onChange={(e) => setFeatured(e.target.value)}
               />
               <label htmlFor="onSale">On Sale</label>
               <input
@@ -153,9 +151,7 @@ export default function CreateSandwich() {
                 id="onSale"
                 name="onSale"
                 value="true"
-                onChange={(e) =>
-                  setOnSale(e.target.value == "true" ? true : false)
-                }
+                onChange={(e) => setOnSale(e.target.value)}
               />
               <label htmlFor="outOfStock">Out Of Stock</label>
               <input
@@ -163,9 +159,7 @@ export default function CreateSandwich() {
                 id="outOfStock"
                 name="outOfStock"
                 value="true"
-                onChange={(e) =>
-                  setOutOfStock(e.target.value == "true" ? true : false)
-                }
+                onChange={(e) => setOutOfStock(e.target.value)}
               />
             </section>
             <button type="submit">Submit</button>

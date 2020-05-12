@@ -135,7 +135,7 @@ class UpdateSandwich extends Component {
                         checked={data.sandwich.featured}
                         toggle={(e) =>
                           this.setState({
-                            featured: e.target.value == "true" ? true : false,
+                            featured: e.target.value,
                           })
                         }
                       />
@@ -145,7 +145,7 @@ class UpdateSandwich extends Component {
                         checked={data.sandwich.onSale}
                         toggle={(e) =>
                           this.setState({
-                            onSale: e.target.value == "true" ? true : false,
+                            onSale: e.target.value,
                           })
                         }
                       />
@@ -155,7 +155,7 @@ class UpdateSandwich extends Component {
                         checked={data.sandwich.outOfStock}
                         toggle={(e) =>
                           this.setState({
-                            outOfStock: e.target.value == "true" ? true : false,
+                            outOfStock: e.target.value,
                           })
                         }
                       />
