@@ -4,7 +4,6 @@ import gql from "graphql-tag";
 import Router from "next/router";
 
 import Form from "./styles/Form";
-import formatMoney from "../lib/formatMoney";
 import Error from "./ErrorMessage";
 
 const CREATE_SANDWICH_MUTATION = gql`
@@ -14,6 +13,9 @@ const CREATE_SANDWICH_MUTATION = gql`
     $description: String!
     $image: String
     $largeImage: String
+    $featured: Boolean!
+    $onSale: Boolean!
+    $outOfStock: Boolean!
   ) {
     createSandwich(
       title: $title
@@ -21,20 +23,26 @@ const CREATE_SANDWICH_MUTATION = gql`
       description: $description
       image: $image
       largeImage: $largeImage
+      featured: $featured
+      onSale: $onSale
+      outOfStock: $outOfStock
     ) {
       id
     }
   }
 `;
 
-const CreateSandwich = () => {
+export default function CreateSandwich() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [largeImage, setLargeImage] = useState("");
+  const [featured, setFeatured] = useState(false);
+  const [onSale, setOnSale] = useState(false);
+  const [outOfStock, setOutOfStock] = useState(false);
 
-  const uploadImage = async (e) => {
+  async function uploadImage(e) {
     const images = e.target.files;
     const data = new FormData();
     data.append("file", images[0]);
@@ -48,15 +56,23 @@ const CreateSandwich = () => {
       }
     );
     const image = await res.json();
-    console.log(image);
 
     setImage(image.secure_url);
     setLargeImage(image.eager[0].secure_url);
-  };
+  }
   return (
     <Mutation
       mutation={CREATE_SANDWICH_MUTATION}
-      variables={{ title, price, description, image, largeImage }}
+      variables={{
+        title,
+        price,
+        description,
+        image,
+        largeImage,
+        featured,
+        onSale,
+        outOfStock,
+      }}
     >
       {(createSandwich, { loading, error }) => (
         <Form
@@ -120,13 +136,38 @@ const CreateSandwich = () => {
                 required
               />
             </label>
+            <section className="flags">
+              <label htmlFor="featured">featured</label>
+              <input
+                type="checkbox"
+                id="featured"
+                name="featured"
+                value="true"
+                onChange={(e) => setFeatured(e.target.value)}
+              />
+              <label htmlFor="onSale">On Sale</label>
+              <input
+                type="checkbox"
+                id="onSale"
+                name="onSale"
+                value="true"
+                onChange={(e) => setOnSale(e.target.value)}
+              />
+              <label htmlFor="outOfStock">Out Of Stock</label>
+              <input
+                type="checkbox"
+                id="outOfStock"
+                name="outOfStock"
+                value="true"
+                onChange={(e) => setOutOfStock(e.target.value)}
+              />
+            </section>
             <button type="submit">Submit</button>
           </fieldset>
         </Form>
       )}
     </Mutation>
   );
-};
+}
 
-export default CreateSandwich;
 export { CREATE_SANDWICH_MUTATION };

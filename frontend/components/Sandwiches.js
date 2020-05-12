@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 
-import Sandwich from "./Sandwich";
+import Error from "./ErrorMessage";
 import Pagination from "./Pagination";
 import { perPage } from "../config";
+import Sandwich from "./Sandwich";
 
 const ALL_SANDWICHES_QUERY = gql`
   query ALL_SANDWICHES_QUERY(
@@ -58,8 +59,8 @@ export default function Sandwiches({ page }) {
         }}
       >
         {({ data, error, loading }) => {
-          if (loading) return <p>loading</p>;
-          if (error) return <p>Error: {error.message}</p>;
+          if (loading) return <p>loading...</p>;
+          if (error) return <Error error={error.message} />;
           return (
             <SandwichesList>
               {data.sandwiches.map((sandwich) => (

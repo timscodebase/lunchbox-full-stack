@@ -1,7 +1,7 @@
 #endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://lunchbox-prod-af4e853b0c.herokuapp.com/lunchbox-prod/prod
+endpoint: https://us1.prisma.sh/tim-smith-131869/theclassiclunchbox/dev
 datamodel: datamodel.graphql
-secret: ${env:PRISMA_SECRET}
+# secret: ${env:PRISMA_SECRET}
 hooks:
   post-deploy:
     - graphql get-schema -p prisma

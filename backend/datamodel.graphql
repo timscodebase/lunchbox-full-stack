@@ -7,12 +7,6 @@ enum Permission {
   PERMISSIONUPDATE
 }
 
-enum Flag {
-  FEATURED
-  ON_SALE
-  OUT_OF_STOCK
-}
-
 type User {
   id: ID! @id
   email: String @unique
@@ -30,7 +24,9 @@ type Sandwich {
   image: String
   largeImage: String
   price: Int!
-  flag: [Flag] @scalarList(strategy: RELATION)
+  featured: String!
+  onSale: String!
+  outOfStock: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   # user: User!

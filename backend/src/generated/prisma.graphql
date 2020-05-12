@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/tim-smith-131869/theclassiclunchbox/dev
-# timestamp: Sun May 03 2020 08:29:44 GMT-0700 (Pacific Daylight Time)
+# timestamp: Mon May 11 2020 13:29:00 GMT-0700 (Pacific Daylight Time)
 
 type AggregateSandwich {
   count: Int!
@@ -15,12 +15,6 @@ type BatchPayload {
 }
 
 scalar DateTime
-
-enum Flag {
-  FEATURED
-  ON_SALE
-  OUT_OF_STOCK
-}
 
 """
 The `Long` scalar type represents non-fractional signed whole numeric values.
@@ -101,7 +95,9 @@ type Sandwich implements Node {
   image: String
   largeImage: String
   price: Int!
-  flag: [Flag!]!
+  featured: String!
+  onSale: String!
+  outOfStock: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -116,10 +112,6 @@ type SandwichConnection {
   aggregate: AggregateSandwich!
 }
 
-input SandwichCreateflagInput {
-  set: [Flag!]
-}
-
 input SandwichCreateInput {
   id: ID
   title: String!
@@ -127,7 +119,9 @@ input SandwichCreateInput {
   image: String
   largeImage: String
   price: Int!
-  flag: SandwichCreateflagInput
+  featured: String!
+  onSale: String!
+  outOfStock: String!
 }
 
 """An edge in a connection."""
@@ -152,6 +146,12 @@ enum SandwichOrderByInput {
   largeImage_DESC
   price_ASC
   price_DESC
+  featured_ASC
+  featured_DESC
+  onSale_ASC
+  onSale_DESC
+  outOfStock_ASC
+  outOfStock_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -165,7 +165,9 @@ type SandwichPreviousValues {
   image: String
   largeImage: String
   price: Int!
-  flag: [Flag!]!
+  featured: String!
+  onSale: String!
+  outOfStock: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -209,17 +211,15 @@ input SandwichSubscriptionWhereInput {
   node: SandwichWhereInput
 }
 
-input SandwichUpdateflagInput {
-  set: [Flag!]
-}
-
 input SandwichUpdateInput {
   title: String
   description: String
   image: String
   largeImage: String
   price: Int
-  flag: SandwichUpdateflagInput
+  featured: String
+  onSale: String
+  outOfStock: String
 }
 
 input SandwichUpdateManyMutationInput {
@@ -228,7 +228,9 @@ input SandwichUpdateManyMutationInput {
   image: String
   largeImage: String
   price: Int
-  flag: SandwichUpdateflagInput
+  featured: String
+  onSale: String
+  outOfStock: String
 }
 
 input SandwichWhereInput {
@@ -462,6 +464,126 @@ input SandwichWhereInput {
 
   """All values greater than or equal the given value."""
   price_gte: Int
+  featured: String
+
+  """All values that are not equal to given value."""
+  featured_not: String
+
+  """All values that are contained in given list."""
+  featured_in: [String!]
+
+  """All values that are not contained in given list."""
+  featured_not_in: [String!]
+
+  """All values less than the given value."""
+  featured_lt: String
+
+  """All values less than or equal the given value."""
+  featured_lte: String
+
+  """All values greater than the given value."""
+  featured_gt: String
+
+  """All values greater than or equal the given value."""
+  featured_gte: String
+
+  """All values containing the given string."""
+  featured_contains: String
+
+  """All values not containing the given string."""
+  featured_not_contains: String
+
+  """All values starting with the given string."""
+  featured_starts_with: String
+
+  """All values not starting with the given string."""
+  featured_not_starts_with: String
+
+  """All values ending with the given string."""
+  featured_ends_with: String
+
+  """All values not ending with the given string."""
+  featured_not_ends_with: String
+  onSale: String
+
+  """All values that are not equal to given value."""
+  onSale_not: String
+
+  """All values that are contained in given list."""
+  onSale_in: [String!]
+
+  """All values that are not contained in given list."""
+  onSale_not_in: [String!]
+
+  """All values less than the given value."""
+  onSale_lt: String
+
+  """All values less than or equal the given value."""
+  onSale_lte: String
+
+  """All values greater than the given value."""
+  onSale_gt: String
+
+  """All values greater than or equal the given value."""
+  onSale_gte: String
+
+  """All values containing the given string."""
+  onSale_contains: String
+
+  """All values not containing the given string."""
+  onSale_not_contains: String
+
+  """All values starting with the given string."""
+  onSale_starts_with: String
+
+  """All values not starting with the given string."""
+  onSale_not_starts_with: String
+
+  """All values ending with the given string."""
+  onSale_ends_with: String
+
+  """All values not ending with the given string."""
+  onSale_not_ends_with: String
+  outOfStock: String
+
+  """All values that are not equal to given value."""
+  outOfStock_not: String
+
+  """All values that are contained in given list."""
+  outOfStock_in: [String!]
+
+  """All values that are not contained in given list."""
+  outOfStock_not_in: [String!]
+
+  """All values less than the given value."""
+  outOfStock_lt: String
+
+  """All values less than or equal the given value."""
+  outOfStock_lte: String
+
+  """All values greater than the given value."""
+  outOfStock_gt: String
+
+  """All values greater than or equal the given value."""
+  outOfStock_gte: String
+
+  """All values containing the given string."""
+  outOfStock_contains: String
+
+  """All values not containing the given string."""
+  outOfStock_not_contains: String
+
+  """All values starting with the given string."""
+  outOfStock_starts_with: String
+
+  """All values not starting with the given string."""
+  outOfStock_not_starts_with: String
+
+  """All values ending with the given string."""
+  outOfStock_ends_with: String
+
+  """All values not ending with the given string."""
+  outOfStock_not_ends_with: String
   createdAt: DateTime
 
   """All values that are not equal to given value."""
