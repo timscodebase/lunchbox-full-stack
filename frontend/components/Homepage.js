@@ -1,20 +1,6 @@
 import styled from "styled-components";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
 
-import Error from "./ErrorMessage";
-import FeaturedSandwich from "./FeaturedSandwich";
-
-const FEATURED_SANDWICH_QUERY = gql`
-  query FEATURED_SANDWICH_QUERY {
-    sandwiches(orderBy: featured_DESC) {
-      id
-      image
-      title
-      description
-    }
-  }
-`;
+import FeaturedSandwiches from "./FeaturedSandwiches";
 
 const StyledHomePage = styled.div`
   display: grid;
@@ -81,39 +67,26 @@ const FeaturedSandwichesGrid = styled.div`
 `;
 
 export default function Homepage() {
-  <Query
-    query={FEATURED_SANDWICH_QUERY}
-    // fetchPolicy="network-only"
-  >
-    {({ data, error, loading }) => {
-      if (loading) return <p>loading</p>;
-      if (error) return <Error error={error.message} />;
-      return (
-        <StyledHomePage>
-          <section className="main">
-            <div className="hero">hi</div>
-            <div className="featured">
-              <h3>Featured Sandwiches</h3>
-              <FeaturedSandwichesGrid>
-                {data.sandwiches.map((sandwich) => (
-                  <FeaturedSandwich key={sandwich.id} sandwich={sandwich} />
-                ))}
-              </FeaturedSandwichesGrid>
-            </div>
-            <div className="story">
-              <h3>Our Story</h3>
-              <p>
-                Fanny pack salvia farm-to-table, pour-over seitan hexagon
-                flannel helvetica. Hella dreamcatcher lyft shoreditch cliche hot
-                chicken marfa live-edge cray biodiesel hexagon. Selfies before
-                they sold out fam portland craft beer succulents pabst marfa.
-                Enamel pin poke subway tile direct trade venmo.
-              </p>
-            </div>
-          </section>
-          <aside className="side-bar">hi</aside>
-        </StyledHomePage>
-      );
-    }}
-  </Query>;
+  return (
+    <StyledHomePage>
+      <section className="main">
+        <div className="hero">hi</div>
+        <div className="featured">
+          <h3>Featured Sandwiches</h3>
+          <FeaturedSandwiches />
+        </div>
+        <div className="story">
+          <h3>Our Story</h3>
+          <p>
+            Fanny pack salvia farm-to-table, pour-over seitan hexagon flannel
+            helvetica. Hella dreamcatcher lyft shoreditch cliche hot chicken
+            marfa live-edge cray biodiesel hexagon. Selfies before they sold out
+            fam portland craft beer succulents pabst marfa. Enamel pin poke
+            subway tile direct trade venmo.
+          </p>
+        </div>
+      </section>
+      <aside className="side-bar">hi</aside>
+    </StyledHomePage>
+  );
 }

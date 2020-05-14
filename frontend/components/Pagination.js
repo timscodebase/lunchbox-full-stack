@@ -40,7 +40,7 @@ export default function Pagination({ page }) {
               <a aria-disabled={page <= 1}>&#60;</a>
             </Link>
             <p>
-              Page {page} of {pages}
+              Page {page || 1} of {pages}
             </p>
             <Link
               prefetch

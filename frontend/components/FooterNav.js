@@ -38,7 +38,7 @@ const FooterNav = () => (
         <FooterLink href="/menu">Menu</FooterLink>
       </li>
       <li>
-        <FooterLink href="/sell">Sell</FooterLink>
+        <FooterLink href="/create">Create</FooterLink>
       </li>
       <li>
         <FooterLink href="signup">Signup</FooterLink>

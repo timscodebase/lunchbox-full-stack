@@ -24,9 +24,9 @@ type Sandwich {
   image: String
   largeImage: String
   price: Int!
-  featured: String!
-  onSale: String!
-  outOfStock: String!
+  featured: Boolean!
+  onSale: Boolean!
+  outOfStock: Boolean!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   # user: User!

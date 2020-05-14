@@ -35,8 +35,4 @@ type Query {
   ): [Sandwich]!
   sandwich(where: SandwichWhereUniqueInput!): Sandwich
   sandwichesConnection(where: SandwichWhereInput): SandwichConnection!
-  homepageFeaturedSandwiches(
-    where: SandwichWhereInput
-    orderBy: SandwichOrderByInput!
-  ): [Sandwich]!
 }

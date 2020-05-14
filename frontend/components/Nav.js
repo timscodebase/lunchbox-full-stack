@@ -23,7 +23,7 @@ export default function Nav() {
     <StyledNav>
       <NavLink href="/">Home</NavLink>
       <NavLink href="/menu">Menu</NavLink>
-      <NavLink href="/sell">Sell</NavLink>
+      <NavLink href="/create">Create</NavLink>
       <NavButton href="/signup" toggle={() => setSignupOpen(!signupOpen)}>
         Signup
       </NavButton>
