@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 
-import Form from "./styles/Form";
+import SignupForm from "./styles/SignupForm";
 import Error from "./ErrorMessage";
 
 const SIGNUP_MUTATION = gql`
@@ -19,14 +19,13 @@ const SIGNUP_MUTATION = gql`
 `;
 
 const StyledSignup = styled.div`
-  width: ${(props) => (props.signupOpen ? "300px" : "0px")};
+  /* width: ${(props) => (props.signupOpen ? "300px" : "0px")}; */
+  height: ${(props) => (props.signupOpen ? "440px" : "0px")};
   opacity: ${(props) => (props.signupOpen ? "1" : "0")};
   overflow: ${(props) => (props.signupOpen ? "visible" : "hidden")};
-  position: absolute;
-  z-index: 2;
   transition: all 0.5s ease-in;
-  top: 18px;
-  right: 18px;
+  top: 0px;
+  right: 0px;
   background: ${(props) => props.theme.white};
 `;
 
@@ -53,7 +52,7 @@ export default function Signup({ signupOpen, toggle }) {
     <Mutation mutation={SIGNUP_MUTATION} variables={{ email, name, password }}>
       {(updateSandwich, { loading, error }) => (
         <StyledSignup signupOpen={signupOpen}>
-          <Form onSubmit={() => {}}>
+          <SignupForm onSubmit={() => {}}>
             <Error error={error} />
             <h3>Signup</h3>
             <p>
@@ -113,7 +112,7 @@ export default function Signup({ signupOpen, toggle }) {
               <button type="submit">Sav{loading ? "ing" : "e"} Changes</button>
               <button onClick={toggle}>Cancel</button>
             </ButtonBox>
-          </Form>
+          </SignupForm>
         </StyledSignup>
       )}
     </Mutation>

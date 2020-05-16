@@ -5,13 +5,13 @@ import styled from "styled-components";
 
 const A = styled.a`
   position: relative;
-  display: flex;
+  display: block;
+  width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  text-align: right;
+  padding: 3rem 6rem;
   background: ${(props) =>
-    props.active ? props.theme.brightPink : "transparent"};
+    props.active ? props.theme.brightPink : props.theme.white};
   color: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
   font-weight: ${(props) => (props.active ? "bolder" : "normal")};
 
@@ -22,7 +22,7 @@ const A = styled.a`
     color: ${(props) =>
       props.active ? props.theme.white : props.theme.brightPink};
     background: ${(props) =>
-      props.active ? props.theme.brightPink : "transparent"};
+      props.active ? props.theme.brightPink : props.theme.white};
   }
 `;
 

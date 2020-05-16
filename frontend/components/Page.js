@@ -1,5 +1,12 @@
+import { useState } from "react";
+import Link from "next/link";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
+import Logo from "./Logo";
+import Nav from "./Nav";
 
 import Header from "../components/Header";
 import Meta from "../components/Meta";
@@ -8,9 +15,35 @@ import Footer from "./Footer";
 
 import Inner from "../components/styles/Inner";
 
+const A = styled.a`
+  position: fixed;
+  z-index: 6;
+  width: 204px;
+  height: 204px;
+  margin: 0 -102px;
+  top: -10px;
+  left: 50%;
+`;
+
 const StyledPage = styled.div`
+  display: grid;
+  position: relative;
+  width: 100%;
   background: url(${(props) => props.theme.pattern});
   color: ${(props) => props.theme.pink};
+  justify-content: center;
+  align-items: center;
+
+  .toggle {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 3rem;
+    color: ${(props) => props.theme.brown};
+  }
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -22,6 +55,13 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   body {
+    padding-top: 190px;
+    overflow-x: hidden;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
     overflow-x: hidden;
   }
   ul {
@@ -194,14 +234,6 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
-  body {
-    background: #d4d4d4;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: "Open Sans", sans-serif;
-    font-size: 2rem;
-    overflow-x: hidden;
-  }
 
   /* Fonts */
 
@@ -280,6 +312,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Page = (props) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const router = useRouter();
   if (router.pathname != "/") {
     return (
@@ -287,6 +321,12 @@ const Page = (props) => {
         <StyledPage>
           <GlobalStyle />
           <Meta />
+          <Link href="/">
+            <A>
+              <Logo text="The Classic Lunchbox" />
+            </A>
+          </Link>
+          <Nav menuOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
           <Header />
           <Inner>{props.children}</Inner>
           <Footer />
@@ -300,6 +340,15 @@ const Page = (props) => {
       <StyledPage>
         <GlobalStyle />
         <Meta />
+        <Link href="/">
+          <A>
+            <Logo text="The Classic Lunchbox" />
+          </A>
+        </Link>
+        <Nav menuOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+        <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
         <Header />
         {props.children}
         <Footer />

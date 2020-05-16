@@ -1,23 +1,18 @@
-import Link from "next/link";
 import styled from "styled-components";
 import Router from "next/router";
 import NProgress from "nprogress";
 
-import H1 from "./styles/H1";
-import Logo from "./Logo";
-import Nav from "./Nav";
-
-const A = styled.a`
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-`;
-
 const StyledHeader = styled.header`
-  display: grid;
-  grid-template-columns: auto auto;
-  border-bottom: 2px solid ${(props) => props.theme.purple};
-  background: rgba(255, 255, 255, 0.75);
+  position: fixed;
+  width: 100%;
+  height: 190px;
+  top: 0;
+  z-index: -1;
+  background-image: url("https://res.cloudinary.com/the-classic-lunchbox/image/upload/q_auto/v1589383172/lunchbox/zpzackauncklhmbwm6oe.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     grid-template-columns: 1fr;
@@ -48,15 +43,7 @@ Router.events.on("routeChangeError", (e) => {
 const Header = () => {
   return (
     <>
-      <StyledHeader>
-        <Link href="/">
-          <A>
-            <Logo />
-            <H1>The Classic Lunchbox</H1>
-          </A>
-        </Link>
-        <Nav />
-      </StyledHeader>
+      <StyledHeader></StyledHeader>
       <SubBar placeholder="Search" />
       <div>Cart</div>
     </>

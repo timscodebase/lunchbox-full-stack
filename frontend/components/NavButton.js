@@ -4,17 +4,17 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Button = styled.button`
-  position: relative;
-  display: flex;
+  display: block;
+  width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: transparent;
-  color: ${(props) => props.theme.pink};
-  font-weight: normal;
-  border: 0px;
-  outline: none;
+  text-align: right;
+  padding: 3rem 6rem;
+  background: ${(props) =>
+    props.active ? props.theme.brightPink : props.theme.white};
+  color: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
+  font-weight: ${(props) => (props.active ? "bolder" : "normal")};
+  border: 0;
+  outline: 0;
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     display: flex;
