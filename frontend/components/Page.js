@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,21 +14,12 @@ import Footer from "./Footer";
 
 import Inner from "../components/styles/Inner";
 
-const A = styled.a`
-  position: fixed;
-  z-index: 6;
-  width: 204px;
-  height: 204px;
-  margin: 0 -102px;
-  top: -10px;
-  left: 50%;
-`;
-
 const StyledPage = styled.div`
   display: grid;
   position: relative;
   width: 100%;
-  background: url(${(props) => props.theme.pattern});
+  background: ${(props) => props.theme.white};
+  /* background: url(${(props) => props.theme.pattern}); */
   color: ${(props) => props.theme.pink};
   justify-content: center;
   align-items: center;
@@ -321,12 +311,11 @@ const Page = (props) => {
         <StyledPage>
           <GlobalStyle />
           <Meta />
-          <Link href="/">
-            <A>
-              <Logo text="The Classic Lunchbox" />
-            </A>
-          </Link>
-          <Nav menuOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+          <Logo />
+          <Nav menuOpen={menuOpen} menuToggle={() => setMenuOpen(!menuOpen)} />
+          <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}>
+            <FontAwesomeIcon icon={faBars} />
+          </button>
           <Header />
           <Inner>{props.children}</Inner>
           <Footer />
@@ -340,12 +329,8 @@ const Page = (props) => {
       <StyledPage>
         <GlobalStyle />
         <Meta />
-        <Link href="/">
-          <A>
-            <Logo text="The Classic Lunchbox" />
-          </A>
-        </Link>
-        <Nav menuOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+        <Logo />
+        <Nav menuOpen={menuOpen} menuToggle={() => setMenuOpen(!menuOpen)} />
         <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}>
           <FontAwesomeIcon icon={faBars} />
         </button>

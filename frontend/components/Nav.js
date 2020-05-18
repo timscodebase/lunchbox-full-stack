@@ -9,13 +9,14 @@ import Signup from "./Signup";
 
 const StyledNav = styled.nav`
   position: absolute;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   background: ${(props) => props.theme.white};
   top: -200px;
   right: 0;
   padding-top: 5.5rem;
   width: ${(props) => (props.menuOpen ? "300px" : "0px")};
-  /* height: ${(props) => (props.menuOpen ? "440px" : "0px")}; */
   opacity: ${(props) => (props.menuOpen ? "1" : "0")};
   overflow: ${(props) => (props.menuOpen ? "visible" : "hidden")};
   z-index: 2;
@@ -38,26 +39,39 @@ const StyledNav = styled.nav`
   }
 `;
 
-export default function Nav({ menuOpen, toggle }) {
+export default function Nav({ menuOpen, menuToggle }) {
   const [signupOpen, setSignupOpen] = useState(false);
+
+  function handleSignup() {}
 
   return (
     <StyledNav menuOpen={menuOpen}>
-      <button className="toggle" onClick={toggle}>
+      <button className="toggle" onClick={menuToggle}>
         <FontAwesomeIcon icon={faTimes} />
       </button>
       <Signup
         signupOpen={signupOpen}
-        toggle={() => setSignupOpen(!signupOpen)}
+        menuToggle={menuToggle}
+        signupToggle={() => setSignupOpen(!signupOpen)}
       />
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/menu">Menu</NavLink>
-      <NavLink href="/create">Create</NavLink>
-      <NavButton href="/signup" toggle={() => setSignupOpen(!signupOpen)}>
+      <NavLink menuToggle={menuToggle} href="/">
+        Home
+      </NavLink>
+      <NavLink menuToggle={menuToggle} href="/menu">
+        Menu
+      </NavLink>
+      <NavLink menuToggle={menuToggle} href="/create">
+        Create
+      </NavLink>
+      <NavButton href="/signup" onClick={() => setSignupOpen(!signupOpen)}>
         Signup
       </NavButton>
-      <NavLink href="/orders">Orders</NavLink>
-      <NavLink href="/account">Account</NavLink>
+      <NavLink menuToggle={menuToggle} href="/orders">
+        Orders
+      </NavLink>
+      <NavLink menuToggle={menuToggle} href="/account">
+        Account
+      </NavLink>
     </StyledNav>
   );
 }

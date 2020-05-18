@@ -7,6 +7,13 @@ enum Permission {
   PERMISSIONUPDATE
 }
 
+enum PartnerType {
+  BREAD
+  JELLY
+  NUTBUTTER
+  OTHER
+}
+
 type User {
   id: ID! @id
   email: String @unique
@@ -30,4 +37,16 @@ type Sandwich {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   # user: User!
+}
+
+type Partner {
+  id: ID! @id
+  address: String
+  companyName: String!
+  contactName: String!
+  description: String
+  email: String @unique
+  website: String
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  partnerType: [PartnerType] @scalarList(strategy: RELATION)
 }

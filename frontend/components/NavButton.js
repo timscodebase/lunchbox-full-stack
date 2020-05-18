@@ -4,10 +4,12 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Button = styled.button`
-  display: block;
+  display: grid;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  text-align: right;
+  /* height: 100%; */
+  text-align: center;
   padding: 3rem 6rem;
   background: ${(props) =>
     props.active ? props.theme.brightPink : props.theme.white};
@@ -25,6 +27,6 @@ const Button = styled.button`
   }
 `;
 
-export default function NavLink({ children, toggle }) {
-  return <Button onClick={toggle}>{children}</Button>;
+export default function NavLink({ children, onClick }) {
+  return <Button onClick={onClick}>{children}</Button>;
 }

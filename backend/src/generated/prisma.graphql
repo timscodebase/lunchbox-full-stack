@@ -1,5 +1,9 @@
 # source: https://us1.prisma.sh/tim-smith-131869/theclassiclunchbox/dev
-# timestamp: Tue May 12 2020 08:54:05 GMT-0700 (Pacific Daylight Time)
+# timestamp: Sat May 16 2020 23:25:51 GMT-0700 (Pacific Daylight Time)
+
+type AggregatePartner {
+  count: Int!
+}
 
 type AggregateSandwich {
   count: Int!
@@ -25,16 +29,22 @@ scalar Long
 type Mutation {
   createUser(data: UserCreateInput!): User!
   createSandwich(data: SandwichCreateInput!): Sandwich!
+  createPartner(data: PartnerCreateInput!): Partner!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateSandwich(data: SandwichUpdateInput!, where: SandwichWhereUniqueInput!): Sandwich
+  updatePartner(data: PartnerUpdateInput!, where: PartnerWhereUniqueInput!): Partner
   deleteUser(where: UserWhereUniqueInput!): User
   deleteSandwich(where: SandwichWhereUniqueInput!): Sandwich
+  deletePartner(where: PartnerWhereUniqueInput!): Partner
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertSandwich(where: SandwichWhereUniqueInput!, create: SandwichCreateInput!, update: SandwichUpdateInput!): Sandwich!
+  upsertPartner(where: PartnerWhereUniqueInput!, create: PartnerCreateInput!, update: PartnerUpdateInput!): Partner!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   updateManySandwiches(data: SandwichUpdateManyMutationInput!, where: SandwichWhereInput): BatchPayload!
+  updateManyPartners(data: PartnerUpdateManyMutationInput!, where: PartnerWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManySandwiches(where: SandwichWhereInput): BatchPayload!
+  deleteManyPartners(where: PartnerWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -64,6 +74,458 @@ type PageInfo {
   endCursor: String
 }
 
+type Partner implements Node {
+  id: ID!
+  address: String
+  companyName: String!
+  contactName: String!
+  description: String
+  email: String
+  website: String
+  permissions: [Permission!]!
+  partnerType: [PartnerType!]!
+}
+
+"""A connection to a list of items."""
+type PartnerConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PartnerEdge]!
+  aggregate: AggregatePartner!
+}
+
+input PartnerCreateInput {
+  id: ID
+  address: String
+  companyName: String!
+  contactName: String!
+  description: String
+  email: String
+  website: String
+  permissions: PartnerCreatepermissionsInput
+  partnerType: PartnerCreatepartnerTypeInput
+}
+
+input PartnerCreatepartnerTypeInput {
+  set: [PartnerType!]
+}
+
+input PartnerCreatepermissionsInput {
+  set: [Permission!]
+}
+
+"""An edge in a connection."""
+type PartnerEdge {
+  """The item at the end of the edge."""
+  node: Partner!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum PartnerOrderByInput {
+  id_ASC
+  id_DESC
+  address_ASC
+  address_DESC
+  companyName_ASC
+  companyName_DESC
+  contactName_ASC
+  contactName_DESC
+  description_ASC
+  description_DESC
+  email_ASC
+  email_DESC
+  website_ASC
+  website_DESC
+}
+
+type PartnerPreviousValues {
+  id: ID!
+  address: String
+  companyName: String!
+  contactName: String!
+  description: String
+  email: String
+  website: String
+  permissions: [Permission!]!
+  partnerType: [PartnerType!]!
+}
+
+type PartnerSubscriptionPayload {
+  mutation: MutationType!
+  node: Partner
+  updatedFields: [String!]
+  previousValues: PartnerPreviousValues
+}
+
+input PartnerSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PartnerSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PartnerSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PartnerSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: PartnerWhereInput
+}
+
+enum PartnerType {
+  BREAD
+  JELLY
+  NUTBUTTER
+  OTHER
+}
+
+input PartnerUpdateInput {
+  address: String
+  companyName: String
+  contactName: String
+  description: String
+  email: String
+  website: String
+  permissions: PartnerUpdatepermissionsInput
+  partnerType: PartnerUpdatepartnerTypeInput
+}
+
+input PartnerUpdateManyMutationInput {
+  address: String
+  companyName: String
+  contactName: String
+  description: String
+  email: String
+  website: String
+  permissions: PartnerUpdatepermissionsInput
+  partnerType: PartnerUpdatepartnerTypeInput
+}
+
+input PartnerUpdatepartnerTypeInput {
+  set: [PartnerType!]
+}
+
+input PartnerUpdatepermissionsInput {
+  set: [Permission!]
+}
+
+input PartnerWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PartnerWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PartnerWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PartnerWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  address: String
+
+  """All values that are not equal to given value."""
+  address_not: String
+
+  """All values that are contained in given list."""
+  address_in: [String!]
+
+  """All values that are not contained in given list."""
+  address_not_in: [String!]
+
+  """All values less than the given value."""
+  address_lt: String
+
+  """All values less than or equal the given value."""
+  address_lte: String
+
+  """All values greater than the given value."""
+  address_gt: String
+
+  """All values greater than or equal the given value."""
+  address_gte: String
+
+  """All values containing the given string."""
+  address_contains: String
+
+  """All values not containing the given string."""
+  address_not_contains: String
+
+  """All values starting with the given string."""
+  address_starts_with: String
+
+  """All values not starting with the given string."""
+  address_not_starts_with: String
+
+  """All values ending with the given string."""
+  address_ends_with: String
+
+  """All values not ending with the given string."""
+  address_not_ends_with: String
+  companyName: String
+
+  """All values that are not equal to given value."""
+  companyName_not: String
+
+  """All values that are contained in given list."""
+  companyName_in: [String!]
+
+  """All values that are not contained in given list."""
+  companyName_not_in: [String!]
+
+  """All values less than the given value."""
+  companyName_lt: String
+
+  """All values less than or equal the given value."""
+  companyName_lte: String
+
+  """All values greater than the given value."""
+  companyName_gt: String
+
+  """All values greater than or equal the given value."""
+  companyName_gte: String
+
+  """All values containing the given string."""
+  companyName_contains: String
+
+  """All values not containing the given string."""
+  companyName_not_contains: String
+
+  """All values starting with the given string."""
+  companyName_starts_with: String
+
+  """All values not starting with the given string."""
+  companyName_not_starts_with: String
+
+  """All values ending with the given string."""
+  companyName_ends_with: String
+
+  """All values not ending with the given string."""
+  companyName_not_ends_with: String
+  contactName: String
+
+  """All values that are not equal to given value."""
+  contactName_not: String
+
+  """All values that are contained in given list."""
+  contactName_in: [String!]
+
+  """All values that are not contained in given list."""
+  contactName_not_in: [String!]
+
+  """All values less than the given value."""
+  contactName_lt: String
+
+  """All values less than or equal the given value."""
+  contactName_lte: String
+
+  """All values greater than the given value."""
+  contactName_gt: String
+
+  """All values greater than or equal the given value."""
+  contactName_gte: String
+
+  """All values containing the given string."""
+  contactName_contains: String
+
+  """All values not containing the given string."""
+  contactName_not_contains: String
+
+  """All values starting with the given string."""
+  contactName_starts_with: String
+
+  """All values not starting with the given string."""
+  contactName_not_starts_with: String
+
+  """All values ending with the given string."""
+  contactName_ends_with: String
+
+  """All values not ending with the given string."""
+  contactName_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  website: String
+
+  """All values that are not equal to given value."""
+  website_not: String
+
+  """All values that are contained in given list."""
+  website_in: [String!]
+
+  """All values that are not contained in given list."""
+  website_not_in: [String!]
+
+  """All values less than the given value."""
+  website_lt: String
+
+  """All values less than or equal the given value."""
+  website_lte: String
+
+  """All values greater than the given value."""
+  website_gt: String
+
+  """All values greater than or equal the given value."""
+  website_gte: String
+
+  """All values containing the given string."""
+  website_contains: String
+
+  """All values not containing the given string."""
+  website_not_contains: String
+
+  """All values starting with the given string."""
+  website_starts_with: String
+
+  """All values not starting with the given string."""
+  website_not_starts_with: String
+
+  """All values ending with the given string."""
+  website_ends_with: String
+
+  """All values not ending with the given string."""
+  website_not_ends_with: String
+}
+
+input PartnerWhereUniqueInput {
+  id: ID
+  email: String
+}
+
 enum Permission {
   ADMIN
   USER
@@ -76,10 +538,13 @@ enum Permission {
 type Query {
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   sandwiches(where: SandwichWhereInput, orderBy: SandwichOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sandwich]!
+  partners(where: PartnerWhereInput, orderBy: PartnerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Partner]!
   user(where: UserWhereUniqueInput!): User
   sandwich(where: SandwichWhereUniqueInput!): Sandwich
+  partner(where: PartnerWhereUniqueInput!): Partner
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   sandwichesConnection(where: SandwichWhereInput, orderBy: SandwichOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SandwichConnection!
+  partnersConnection(where: PartnerWhereInput, orderBy: PartnerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PartnerConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -529,6 +994,7 @@ input SandwichWhereUniqueInput {
 type Subscription {
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   sandwich(where: SandwichSubscriptionWhereInput): SandwichSubscriptionPayload
+  partner(where: PartnerSubscriptionWhereInput): PartnerSubscriptionPayload
 }
 
 type User implements Node {

@@ -26,6 +26,28 @@ const Mutations = {
       info
     );
   },
+  async createPartner(parent, args, ctx, info) {
+    console.log({ args });
+    const partner = await ctx.db.mutation.createPartner(
+      { data: { ...args } },
+
+      info
+    );
+    return partner;
+  },
+  updatePartner(parent, args, ctx, info) {
+    const updates = { ...args };
+    delete updates.id;
+    return ctx.db.mutation.updatePartner(
+      {
+        data: updates,
+        where: {
+          id: args.id,
+        },
+      },
+      info
+    );
+  },
   async deleteSandwich(parent, args, ctx, info) {
     const where = { id: args.id };
     // 1. find the sandwich

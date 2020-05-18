@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import FeaturedSandwiches from "./FeaturedSandwiches";
+import Partners from "./Partners";
 
 const StyledHomePage = styled.div`
   display: grid;
@@ -14,6 +15,10 @@ const StyledHomePage = styled.div`
     margin: 0 auto;
   }
 
+  aside {
+    padding: 1.5rem;
+  }
+
   .main {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -25,24 +30,20 @@ const StyledHomePage = styled.div`
     }
 
     .hero {
-      color: ${(props) => props.theme.white};
-      background: ${(props) => props.theme.purple};
+      color: ${(props) => props.theme.brightPink};
     }
 
     .featured {
-      color: ${(props) => props.theme.brown};
-      background: ${(props) => props.theme.white};
+      color: ${(props) => props.theme.purple};
     }
 
     .story {
-      color: ${(props) => props.theme.white};
-      background: ${(props) => props.theme.brightPink};
+      color: ${(props) => props.theme.brown};
     }
   }
 
-  .side-bar {
-    color: ${(props) => props.theme.white};
-    background: ${(props) => props.theme.pink};
+  aside {
+    color: ${(props) => props.theme.brightPink};
   }
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
@@ -51,11 +52,11 @@ const StyledHomePage = styled.div`
 
     .featured,
     .story,
-    .side-bar {
+    aside {
       margin-top: 4px;
     }
 
-    .side-bar {
+    aside {
       background: ${(props) => props.theme.brown};
     }
   }
@@ -70,7 +71,6 @@ export default function Homepage() {
   return (
     <StyledHomePage>
       <section className="main">
-        <div className="hero">hi</div>
         <div className="featured">
           <h3>Featured Sandwiches</h3>
           <FeaturedSandwiches />
@@ -85,8 +85,12 @@ export default function Homepage() {
             subway tile direct trade venmo.
           </p>
         </div>
+        <div className="hero">hi</div>
       </section>
-      <aside className="side-bar">hi</aside>
+      <aside>
+        <h3>Ingredients/Partners</h3>
+        <Partners />
+      </aside>
     </StyledHomePage>
   );
 }

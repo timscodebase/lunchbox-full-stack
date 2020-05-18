@@ -12,6 +12,7 @@ const FEATURED_SANDWICH_QUERY = gql`
       image
       title
       description
+      price
     }
   }
 `;
@@ -21,6 +22,10 @@ const FeaturedSandwichesGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   padding-top: 1rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default function FeaturedSandwiches() {

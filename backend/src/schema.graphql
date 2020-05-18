@@ -24,6 +24,25 @@ type Mutation {
 
   deleteSandwich(id: ID!): Sandwich
   signup(email: String!, name: String!, password: String!): User!
+
+  createPartner(
+    address: String
+    companyName: String!
+    contactName: String!
+    description: String
+    email: String
+    website: String
+  ): Partner!
+
+  updatePartner(
+    id: ID!
+    address: String
+    companyName: String!
+    contactName: String!
+    description: String
+    email: String
+    website: String
+  ): Partner!
 }
 
 type Query {
@@ -34,5 +53,12 @@ type Query {
     first: Int
   ): [Sandwich]!
   sandwich(where: SandwichWhereUniqueInput!): Sandwich
+  partners(
+    where: PartnerWhereInput
+    orderBy: PartnerOrderByInput
+    skip: Int
+    first: Int
+  ): [Partner]!
+  partner(where: PartnerWhereInput): Partner
   sandwichesConnection(where: SandwichWhereInput): SandwichConnection!
 }

@@ -38,15 +38,20 @@ const ButtonLink = styled.span`
   color: ${(props) => props.theme.purple};
 `;
 
-export default function Signup({ signupOpen, toggle }) {
+export default function Signup({ signupOpen, menuToggle, signupToggle }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   useEffect(() => {
-    if (signupOpen === true) document.body.addEventListener("click", toggle);
+    if (signupOpen == true) document.body.addEventListener("click", menuToggle);
   }, []);
+
+  function handleClick() {
+    menuToggle();
+    signupToggle();
+  }
 
   return (
     <Mutation mutation={SIGNUP_MUTATION} variables={{ email, name, password }}>
@@ -110,7 +115,7 @@ export default function Signup({ signupOpen, toggle }) {
             </label>
             <ButtonBox>
               <button type="submit">Sav{loading ? "ing" : "e"} Changes</button>
-              <button onClick={toggle}>Cancel</button>
+              <button onClick={handleClick}>Cancel</button>
             </ButtonBox>
           </SignupForm>
         </StyledSignup>

@@ -12,8 +12,7 @@ const Theme = {
   purple: "#6e0078",
   maxWidth: "1000px",
   tabletMQ: "800px",
-  smallLogoSize: "120",
-  largeLogoSize: "240",
+  logoScrollTrigger: "50px",
   // Padding
   padding: "1rem",
   // Box Shadows

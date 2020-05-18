@@ -5,9 +5,11 @@ import styled from "styled-components";
 
 const A = styled.a`
   position: relative;
-  display: block;
+  display: grid;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   text-align: right;
   padding: 3rem 6rem;
   background: ${(props) =>
@@ -26,7 +28,7 @@ const A = styled.a`
   }
 `;
 
-export default function NavLink({ children, href }) {
+export default function NavLink({ children, href, menuToggle }) {
   const [active, setActive] = useState(false);
 
   const router = useRouter();
@@ -38,6 +40,7 @@ export default function NavLink({ children, href }) {
   const handleClick = (e) => {
     e.preventDefault();
     router.push(href);
+    menuToggle();
   };
 
   return (
