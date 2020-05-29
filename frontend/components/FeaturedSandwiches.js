@@ -22,6 +22,11 @@ const FeaturedSandwichesGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   padding-top: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: ${(props) => props.theme.tan};
+  border: 3px solid ${(props) => props.theme.brown};
+  border-radius: ${(props) => props.theme.borderRadius};
 
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;

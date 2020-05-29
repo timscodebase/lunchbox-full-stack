@@ -15,13 +15,26 @@ const StyledHomePage = styled.div`
     margin: 0 auto;
   }
 
+  h3.header {
+    padding: 1rem;
+    margin: 0 auto;
+    font-weight: bold;
+    border: 3px solid ${(props) => props.theme.brown};
+    border-radius: ${(props) => props.theme.borderRadius};
+    background: ${(props) => props.theme.whiteTrans75};
+  }
+
   aside {
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0 0;
   }
 
   .main {
     grid-column-start: 1;
     grid-column-end: 3;
+
+    @media (max-width: ${(props) => props.theme.tabletMQ}) {
+      width: 100vw;
+    }
 
     .hero,
     .featured,
@@ -39,6 +52,11 @@ const StyledHomePage = styled.div`
 
     .story {
       color: ${(props) => props.theme.brown};
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: ${(props) => props.theme.tan};
+      border: 3px solid ${(props) => props.theme.brown};
+      border-radius: ${(props) => props.theme.borderRadius};
     }
   }
 
@@ -72,11 +90,11 @@ export default function Homepage() {
     <StyledHomePage>
       <section className="main">
         <div className="featured">
-          <h3>Featured Sandwiches</h3>
+          <h3 className="header">Featured Sandwiches</h3>
           <FeaturedSandwiches />
         </div>
         <div className="story">
-          <h3>Our Story</h3>
+          <h3 className="header">Our Story</h3>
           <p>
             Fanny pack salvia farm-to-table, pour-over seitan hexagon flannel
             helvetica. Hella dreamcatcher lyft shoreditch cliche hot chicken
@@ -88,7 +106,7 @@ export default function Homepage() {
         <div className="hero">hi</div>
       </section>
       <aside>
-        <h3>Ingredients/Partners</h3>
+        <h3 className="header">Ingredients/Partners</h3>
         <Partners />
       </aside>
     </StyledHomePage>

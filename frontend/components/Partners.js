@@ -25,7 +25,8 @@ const StyledPartners = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
+  border: 3px solid ${(props) => props.theme.brown};
 `;
 
 export default function Partners() {

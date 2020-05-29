@@ -7,8 +7,7 @@ const Button = styled.button`
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  /* height: 100%; */
+  width: 300px;
   text-align: center;
   padding: 3rem 6rem;
   background: ${(props) =>
@@ -17,6 +16,11 @@ const Button = styled.button`
   font-weight: ${(props) => (props.active ? "bolder" : "normal")};
   border: 0;
   outline: 0;
+
+  &:hover {
+    background: ${(props) =>
+      props.active ? props.theme.brightPink : props.theme.brightPinkTrans};
+  }
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     display: flex;
@@ -27,6 +31,6 @@ const Button = styled.button`
   }
 `;
 
-export default function NavLink({ children, onClick }) {
-  return <Button onClick={onClick}>{children}</Button>;
+export default function NavLink({ children, signupOpen }) {
+  return <Button onClick={signupOpen}>{children}</Button>;
 }

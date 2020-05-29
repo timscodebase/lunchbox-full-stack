@@ -19,12 +19,15 @@ const SIGNUP_MUTATION = gql`
 `;
 
 const StyledSignup = styled.div`
-  /* width: ${(props) => (props.signupOpen ? "300px" : "0px")}; */
+  position: absolute;
+  top: 40px;
+  z-index: 4;
+  width: 300px;
   height: ${(props) => (props.signupOpen ? "440px" : "0px")};
   opacity: ${(props) => (props.signupOpen ? "1" : "0")};
   overflow: ${(props) => (props.signupOpen ? "visible" : "hidden")};
-  transition: all 0.5s ease-in;
-  top: 0px;
+  transition: all 0.25s ease-in;
+  top: 40px;
   right: 0px;
   background: ${(props) => props.theme.white};
 `;
@@ -58,65 +61,69 @@ export default function Signup({ signupOpen, menuToggle, signupToggle }) {
       {(updateSandwich, { loading, error }) => (
         <StyledSignup signupOpen={signupOpen}>
           <SignupForm onSubmit={() => {}}>
-            <Error error={error} />
-            <h3>Signup</h3>
-            <p>
-              Already have an account?{" "}
-              <ButtonLink onClick={() => setSignedIn(!signedIn)}>
-                Sign In
-              </ButtonLink>
-            </p>
-            <label htmlFor="email">
-              Email
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="Enter your email address."
-                required
-                onChange={(e) => setEmail(e.target.val)}
-              />
-            </label>
+            <fieldset disabled={loading} aria-busy={loading}>
+              <Error error={error} />
+              <h3>Signup</h3>
+              <p>
+                Already have an account?{" "}
+                <ButtonLink onClick={() => setSignedIn(!signedIn)}>
+                  Sign In
+                </ButtonLink>
+              </p>
+              <label htmlFor="email">
+                Email
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email address."
+                  required
+                  onChange={(e) => setEmail(e.target.val)}
+                />
+              </label>
 
-            <label htmlFor="Name">
-              Name
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="What is your name?"
-                required
-                onChange={(e) => setName(e.target.val)}
-              />
-            </label>
+              <label htmlFor="Name">
+                Name
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="What is your name?"
+                  required
+                  onChange={(e) => setName(e.target.val)}
+                />
+              </label>
 
-            <label htmlFor="password">
-              Password
-              <input
-                type="text"
-                id="password"
-                name="password"
-                placeholder="Select a password."
-                required
-                onChange={(e) => setPassword(e.target.val)}
-              />
-            </label>
+              <label htmlFor="password">
+                Password
+                <input
+                  type="text"
+                  id="password"
+                  name="password"
+                  placeholder="Select a password."
+                  required
+                  onChange={(e) => setPassword(e.target.val)}
+                />
+              </label>
 
-            <label htmlFor="passwordConfirmation">
-              Password Confirmation
-              <input
-                type="text"
-                id="passwordConfirmation"
-                name="passwordConfirmation"
-                placeholder="Select a password."
-                required
-                onChange={(e) => setPasswordConfirmation(e.target.val)}
-              />
-            </label>
-            <ButtonBox>
-              <button type="submit">Sav{loading ? "ing" : "e"} Changes</button>
-              <button onClick={handleClick}>Cancel</button>
-            </ButtonBox>
+              <label htmlFor="passwordConfirmation">
+                Password Confirmation
+                <input
+                  type="text"
+                  id="passwordConfirmation"
+                  name="passwordConfirmation"
+                  placeholder="Select a password."
+                  required
+                  onChange={(e) => setPasswordConfirmation(e.target.val)}
+                />
+              </label>
+              <ButtonBox>
+                <button type="submit">
+                  Sav{loading ? "ing" : "e"} Changes
+                </button>
+                <button onClick={handleClick}>Cancel</button>
+              </ButtonBox>
+            </fieldset>
           </SignupForm>
         </StyledSignup>
       )}

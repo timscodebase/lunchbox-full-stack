@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 190px;
   top: 0;
-  z-index: -1;
+  z-index: -2;
   background-image: url("https://res.cloudinary.com/the-classic-lunchbox/image/upload/q_auto/v1589383172/lunchbox/zpzackauncklhmbwm6oe.jpg");
   background-attachment: fixed;
   background-position: center;

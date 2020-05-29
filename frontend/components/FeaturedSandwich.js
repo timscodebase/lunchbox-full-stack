@@ -5,11 +5,11 @@ import formatMoney from "../lib/formatMoney";
 
 const StyledFeaturedSandwich = styled.article`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  color: ${(props) => props.theme.white};
+  grid-template-columns: auto 1fr;
+  color: ${(props) => props.theme.brown};
   border-radius: ${(props) => props.theme.borderRadius};
   border: 1px solid ${(props) => props.theme.purple};
-  background: ${(props) => props.theme.brown};
+  background: ${(props) => props.theme.whiteTrans75};
   overflow: hidden;
 
   img {
@@ -19,7 +19,8 @@ const StyledFeaturedSandwich = styled.article`
   }
 
   .meta {
-    margin-left: 2rem;
+    border-left: 1px solid ${(props) => props.theme.brightPink};
+    padding-left: 2rem;
     text-align: left;
 
     p {
@@ -33,6 +34,14 @@ const StyledFeaturedSandwich = styled.article`
       width: 300px;
       height: 240px;
       object-fit: cover;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    grid-template-columns: 1fr;
+
+    img {
+      width: 100%;
     }
   }
 `;

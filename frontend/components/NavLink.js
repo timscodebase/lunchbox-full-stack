@@ -8,14 +8,18 @@ const A = styled.a`
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  /* height: 100%; */
+  width: 300px;
   text-align: right;
   padding: 3rem 6rem;
   background: ${(props) =>
     props.active ? props.theme.brightPink : props.theme.white};
   color: ${(props) => (props.active ? props.theme.white : props.theme.pink)};
   font-weight: ${(props) => (props.active ? "bolder" : "normal")};
+
+  &:hover {
+    background: ${(props) =>
+      props.active ? props.theme.brightPink : props.theme.brightPinkTrans};
+  }
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     display: flex;

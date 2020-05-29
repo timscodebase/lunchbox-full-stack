@@ -22,7 +22,8 @@ const Theme = {
   lg: "linear-gradient(138deg, #dfa456, #793817, #ff0040, #ae0e60, #dfa456);",
   // Border Radius
   br: "10px",
-  borderRadius: "5px",
+  borderRadius: "8px",
+  innerBorderRadius: "5px",
   // Background Patterns
   pattern:
     "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAPElEQVQYlWO4vzh05v3FoTP/EwAMRCvEJtjH5Tuzj8t3JvUUYrW6wlxsZoW5GGE3Eq0QmyC2kKBMITYAAJMVbbAfO6KTAAAAAElFTkSuQmCC",
@@ -30,5 +31,6 @@ const Theme = {
 
 // Pattern 2 url;
 //https://bit.ly/3a2By92
+//https://leaverou.github.io/css3patterns/#tablecloth
 
 export default Theme;

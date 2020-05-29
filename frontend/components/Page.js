@@ -14,15 +14,30 @@ import Footer from "./Footer";
 
 import Inner from "../components/styles/Inner";
 
+const TableCloth = styled.div`
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  width: 500vw;
+  height: 500vh;
+  z-index: -1;
+  background: ${(props) => props.theme.white};
+  background-image: linear-gradient(90deg, #ff004063 50%, transparent 50%),
+    linear-gradient(rgba(0, 128, 0, 0.15) 50%, transparent 50%);
+  background-size: 30px 30px;
+  transform: rotate(45deg);
+`;
+
 const StyledPage = styled.div`
   display: grid;
   position: relative;
   width: 100%;
-  background: ${(props) => props.theme.white};
-  /* background: url(${(props) => props.theme.pattern}); */
+  background: transparent;
   color: ${(props) => props.theme.pink};
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  overflow: hidden;
 
   .toggle {
     position: fixed;
@@ -46,7 +61,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     padding-top: 190px;
-    overflow-x: hidden;
     background: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -312,6 +326,7 @@ const Page = (props) => {
           <GlobalStyle />
           <Meta />
           <Logo />
+          <TableCloth />
           <Nav menuOpen={menuOpen} menuToggle={() => setMenuOpen(!menuOpen)} />
           <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}>
             <FontAwesomeIcon icon={faBars} />
@@ -330,6 +345,7 @@ const Page = (props) => {
         <GlobalStyle />
         <Meta />
         <Logo />
+        <TableCloth />
         <Nav menuOpen={menuOpen} menuToggle={() => setMenuOpen(!menuOpen)} />
         <button className="toggle" onClick={() => setMenuOpen(!menuOpen)}>
           <FontAwesomeIcon icon={faBars} />

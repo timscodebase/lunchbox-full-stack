@@ -2,12 +2,25 @@ import styled from "styled-components";
 
 const StyledIngredient = styled.section`
   background: ${(props) => props.theme.white};
-  border-radius: ${(props) => props.theme.borderRadius};
+  border-radius: ${(props) => props.theme.innerBorderRadius};
   border: 1px solid ${(props) => props.theme.brown};
-  color: ${(props) => props.theme.brown};
-  padding: 0.5rem;
+  color: ${(props) => props.theme.brightPink};
+  padding: 1rem;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+
+  h3 {
+    color: ${(props) => props.theme.purple};
+  }
+
+  a {
+    display: inline-block;
+    color: ${(props) => props.theme.brown};
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   &:last-of-type {
     margin-bottom: 0;

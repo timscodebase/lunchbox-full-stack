@@ -8,19 +8,21 @@ import NavLink from "./NavLink";
 import Signup from "./Signup";
 
 const StyledNav = styled.nav`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  justify-content: center;
   text-align: center;
   background: ${(props) => props.theme.white};
-  top: -200px;
+  top: 0px;
   right: 0;
-  padding-top: 5.5rem;
+  padding-top: 40px;
   width: ${(props) => (props.menuOpen ? "300px" : "0px")};
   opacity: ${(props) => (props.menuOpen ? "1" : "0")};
   overflow: ${(props) => (props.menuOpen ? "visible" : "hidden")};
-  z-index: 2;
-  transition: all 0.5s ease-in;
+  z-index: 3;
+  transition: all 0.25s ease-in;
 
   .toggle {
     position: absolute;
@@ -42,8 +44,6 @@ const StyledNav = styled.nav`
 export default function Nav({ menuOpen, menuToggle }) {
   const [signupOpen, setSignupOpen] = useState(false);
 
-  function handleSignup() {}
-
   return (
     <StyledNav menuOpen={menuOpen}>
       <button className="toggle" onClick={menuToggle}>
@@ -63,7 +63,7 @@ export default function Nav({ menuOpen, menuToggle }) {
       <NavLink menuToggle={menuToggle} href="/create">
         Create
       </NavLink>
-      <NavButton href="/signup" onClick={() => setSignupOpen(!signupOpen)}>
+      <NavButton href="/signup" signupOpen={() => setSignupOpen(!signupOpen)}>
         Signup
       </NavButton>
       <NavLink menuToggle={menuToggle} href="/orders">
