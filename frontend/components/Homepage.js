@@ -8,8 +8,9 @@ const StyledHomePage = styled.div`
   grid-gap: 4px;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0 0 -2rem 0;
-  border-bottom: 4px solid ${(props) => props.theme.white};
   text-align: center;
+  border-top: 2px solid ${(props) => props.theme.pink};
+  border-bottom: 4px solid ${(props) => props.theme.white};
 
   h3 {
     margin: 0 auto;
@@ -21,25 +22,20 @@ const StyledHomePage = styled.div`
     font-weight: bold;
     border: 3px solid ${(props) => props.theme.brown};
     border-radius: ${(props) => props.theme.borderRadius};
-    background: ${(props) => props.theme.whiteTrans75};
+    background: ${(props) => props.theme.white};
   }
 
   aside {
     padding: 1.5rem 1.5rem 0 0;
   }
 
-  .main {
+  main {
     grid-column-start: 1;
     grid-column-end: 3;
+    margin: 1.5rem;
 
     @media (max-width: ${(props) => props.theme.tabletMQ}) {
       width: 100vw;
-    }
-
-    .hero,
-    .featured,
-    .story {
-      padding: 1.5rem;
     }
 
     .hero {
@@ -88,7 +84,7 @@ const FeaturedSandwichesGrid = styled.div`
 export default function Homepage() {
   return (
     <StyledHomePage>
-      <section className="main">
+      <main>
         <div className="featured">
           <h3 className="header">Featured Sandwiches</h3>
           <FeaturedSandwiches />
@@ -104,7 +100,7 @@ export default function Homepage() {
           </p>
         </div>
         <div className="hero">hi</div>
-      </section>
+      </main>
       <aside>
         <h3 className="header">Ingredients/Partners</h3>
         <Partners />

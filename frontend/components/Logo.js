@@ -14,11 +14,16 @@ const LogoBox = styled.section`
     margin: 3rem;
     width: ${(props) => (props.scrollPosition > 50 ? "67px" : "134px")};
     height: ${(props) => (props.scrollPosition > 50 ? "67px" : "134px")};
+    opacity: ${(props) => (props.scrollPosition > 50 ? "0.75" : "1")};
     margin-left: ${(props) =>
       props.scrollPosition > 50 ? "-33.5px" : "-67px"};
     top: 0px;
     left: 50%;
     border-radius: 50%;
+
+    &:hover {
+      opacity: 1 !important;
+    }
   }
 `;
 

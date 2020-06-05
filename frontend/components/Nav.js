@@ -64,7 +64,7 @@ export default function Nav({ menuOpen, menuToggle }) {
         Create
       </NavLink>
       <NavButton href="/signup" signupOpen={() => setSignupOpen(!signupOpen)}>
-        Signup
+        Signup / Sign In
       </NavButton>
       <NavLink menuToggle={menuToggle} href="/orders">
         Orders

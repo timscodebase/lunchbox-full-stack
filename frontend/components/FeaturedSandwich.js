@@ -6,11 +6,11 @@ import formatMoney from "../lib/formatMoney";
 const StyledFeaturedSandwich = styled.article`
   display: grid;
   grid-template-columns: auto 1fr;
-  color: ${(props) => props.theme.brown};
+  color: ${(props) => props.theme.brightPink};
   border-radius: ${(props) => props.theme.borderRadius};
   border: 1px solid ${(props) => props.theme.purple};
-  background: ${(props) => props.theme.whiteTrans75};
   overflow: hidden;
+  position: relative;
 
   img {
     width: 200px;
@@ -19,13 +19,26 @@ const StyledFeaturedSandwich = styled.article`
   }
 
   .meta {
+    background: ${(props) => props.theme.whiteTrans80};
     border-left: 1px solid ${(props) => props.theme.brightPink};
-    padding-left: 2rem;
+    padding: 1rem 2rem;
     text-align: left;
 
+    h3 {
+      color: ${(props) => props.theme.purple};
+    }
+
     p {
-      font-size: 1.5rem;
-      /* color: ${(props) => props.theme.white}; */
+      font-size: 2rem;
+    }
+
+    .price {
+      position: absolute;
+      bottom: -1rem;
+      right: 2rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: ${(props) => props.theme.brown};
     }
   }
 
@@ -61,7 +74,7 @@ export default function FeaturedSandwich({ sandwich }) {
           <div className="meta">
             <h3>{title}</h3>
             <p>{description}</p>
-            <h4>{formatMoney(price)}</h4>
+            <h4 className="price">{formatMoney(price)}</h4>
           </div>
         </StyledFeaturedSandwich>
       </a>

@@ -12,15 +12,15 @@ const loading = keyframes`
   }
 `;
 
-const SignupForm = styled.form`
+const StyledSignupForm = styled.form`
   width: ${(props) => (props.signupOpen ? "0px" : "300px")};
-  height: ${(props) => (props.signupOpen ? "0px" : "440px")};
+  /* height: ${(props) => (props.signupOpen ? "0px" : "440px")}; */
   opacity: ${(props) => (props.signupOpen ? "0" : "1")};
   overflow: ${(props) => (props.signupOpen ? "hidden" : "visible")};
   background: ${(props) => props.theme.white};
   padding: ${(props) => props.theme.padding};
-  border-top: 2px solid ${(props) => props.theme.brown};
-  border-bottom: 2px solid ${(props) => props.theme.brown};
+  /* border-top: 2px solid ${(props) => props.theme.brown};
+  border-bottom: 2px solid ${(props) => props.theme.brown}; */
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
@@ -94,4 +94,4 @@ const SignupForm = styled.form`
   }
 `;
 
-export default SignupForm;
+export default StyledSignupForm;

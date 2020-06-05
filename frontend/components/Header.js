@@ -19,17 +19,6 @@ const StyledHeader = styled.header`
   }
 `;
 
-const SubBar = styled.input`
-  width: 100%;
-  background: ${(props) => props.theme.whiteTrans75};
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 2px solid ${(props) => props.theme.pink};
-  color: ${(props) => props.theme.pink};
-  padding: 5px 1rem;
-`;
-
 Router.events.on("routeChangeStart", (e) => {
   NProgress.start();
 });
@@ -44,8 +33,7 @@ const Header = () => {
   return (
     <>
       <StyledHeader></StyledHeader>
-      <SubBar placeholder="Search" />
-      <div>Cart</div>
+      {/* <div>Cart</div> */}
     </>
   );
 };

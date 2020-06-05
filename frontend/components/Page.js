@@ -16,10 +16,10 @@ import Inner from "../components/styles/Inner";
 
 const TableCloth = styled.div`
   position: absolute;
-  top: -100vh;
-  left: -100vw;
-  width: 500vw;
-  height: 500vh;
+  /* top: -100vh;
+  left: -100vw; */
+  width: 500%;
+  height: 500%;
   z-index: -1;
   background: ${(props) => props.theme.white};
   background-image: linear-gradient(90deg, #ff004063 50%, transparent 50%),
