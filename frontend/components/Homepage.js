@@ -12,6 +12,10 @@ const StyledHomePage = styled.div`
   border-top: 2px solid ${(props) => props.theme.pink};
   border-bottom: 4px solid ${(props) => props.theme.white};
 
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    grid-template-columns: 1fr;
+  }
+
   h3 {
     margin: 0 auto;
   }
@@ -27,6 +31,14 @@ const StyledHomePage = styled.div`
 
   aside {
     padding: 1.5rem 1.5rem 0 0;
+
+    @media (max-width: ${(props) => props.theme.tabletMQ}) {
+      padding: 1.5rem;
+
+      h3.header {
+        border: 3px solid ${(props) => props.theme.brightPink};
+      }
+    }
   }
 
   main {
@@ -35,7 +47,7 @@ const StyledHomePage = styled.div`
     margin: 1.5rem;
 
     @media (max-width: ${(props) => props.theme.tabletMQ}) {
-      width: 100vw;
+      width: 94vw;
     }
 
     .hero {

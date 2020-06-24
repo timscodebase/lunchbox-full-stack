@@ -25,6 +25,10 @@ const StyledSignupForm = styled.form`
   line-height: 1.5;
   font-weight: 600;
 
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    width: 100%;
+  }
+
   h3 {
     margin: 0 0 1rem 0 !important;
   }

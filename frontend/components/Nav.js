@@ -36,8 +36,12 @@ const StyledNav = styled.nav`
   }
 
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
-    margin-top: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 100vw;
+    grid-template-columns: 1fr;
+
+    & * {
+      width: 100vw;
+    }
   }
 `;
 

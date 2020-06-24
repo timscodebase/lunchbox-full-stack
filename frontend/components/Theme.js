@@ -12,7 +12,7 @@ const Theme = {
   pink: "#ae0e60",
   purple: "#6e0078",
   maxWidth: "1000px",
-  tabletMQ: "800px",
+  tabletMQ: "850px",
   logoScrollTrigger: "50px",
   // Padding
   padding: "1rem",

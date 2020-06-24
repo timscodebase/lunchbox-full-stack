@@ -24,7 +24,7 @@ const A = styled.a`
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     display: flex;
     height: 58.75px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: ${(props) =>
       props.active ? props.theme.white : props.theme.brightPink};
     background: ${(props) =>

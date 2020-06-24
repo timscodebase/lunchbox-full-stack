@@ -26,6 +26,10 @@ const TableCloth = styled.div`
     linear-gradient(rgba(0, 128, 0, 0.15) 50%, transparent 50%);
   background-size: 30px 30px;
   transform: rotate(45deg);
+
+  @media (max-width: ${(props) => props.theme.tabletMQ}) {
+    top: -250%;
+  }
 `;
 
 const StyledPage = styled.div`

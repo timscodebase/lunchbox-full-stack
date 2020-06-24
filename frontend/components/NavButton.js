@@ -25,7 +25,7 @@ const Button = styled.button`
   @media (max-width: ${(props) => props.theme.tabletMQ}) {
     display: flex;
     height: 58.75px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: ${(props) => props.theme.brightPink};
     background: transparent;
   }
